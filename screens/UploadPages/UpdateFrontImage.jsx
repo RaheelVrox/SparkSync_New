@@ -179,7 +179,7 @@ const UpdateFrontImage = ({ route, navigation }) => {
                 justifyContent: "space-around",
                 alignItems: "center",
                 width: wp(100),
-                marginBottom: 30,
+                marginBottom: 25,
               }}
             >
               {!loading ? (
@@ -236,7 +236,7 @@ const UpdateFrontImage = ({ route, navigation }) => {
                   </TouchableOpacity>
                 </>
               ) : (
-                <ActivityIndicator size="large" color="#346AFE" />
+                <ActivityIndicator size="large" color="#069FF8" />
               )}
             </View>
           </View>

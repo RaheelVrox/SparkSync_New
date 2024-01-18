@@ -107,8 +107,8 @@ const UpdateBackImage = ({ route, navigation }) => {
       });
 
       setUploadMessage("");
-      navigation.navigate("BottomTabsNavigator", {
-        // screen: "Homepage",
+      navigation.navigate("HomeStack", {
+        screen: "Homepage",
         params: {
           showAlert: true,
         },
@@ -183,7 +183,7 @@ const UpdateBackImage = ({ route, navigation }) => {
                 justifyContent: "space-around",
                 alignItems: "center",
                 width: wp(100),
-                marginBottom: 30,
+                marginBottom: 25,
               }}
             >
               {!loading ? (
@@ -240,7 +240,7 @@ const UpdateBackImage = ({ route, navigation }) => {
                   </TouchableOpacity>
                 </>
               ) : (
-                <ActivityIndicator size="large" color="#346AFE" />
+                <ActivityIndicator size="large" color="#069FF8" />
               )}
             </View>
           </View>

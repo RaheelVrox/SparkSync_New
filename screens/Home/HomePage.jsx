@@ -48,6 +48,7 @@ const HomePage = () => {
               textAlign: "center",
               margin: 85,
               paddingLeft: 30,
+              alignSelf: "center",
               fontFamily: "Roboto-Regular",
               fontSize: 20,
               fontWeight: "600",

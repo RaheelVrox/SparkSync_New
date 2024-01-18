@@ -1,10 +1,8 @@
 import React, { useEffect, useLayoutEffect, useState } from "react";
 import { useUserData } from "../UserDataContext";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { Text } from "react-native";
 import BottomTabsNavigator from "../navigation/BottomTabsNavigator";
 import Frontpage from "../screens/FrontPage/Frontpage";
-import LoginRegister from "../screens/LoginRegister/LoginRegister";
 import Login from "../screens/Login/Login";
 import OTPVerify from "../screens/OTPAuthentication/OTPVerify";
 import EmailRecover from "../screens/ForgotPassword/EmailRecover";
@@ -21,26 +19,22 @@ import SignUP from "../screens/SignUp/SignUp";
 import { useNavigation } from "@react-navigation/native";
 
 const Stack = createNativeStackNavigator();
-
 const StackNavigation = () => {
   const navigation = useNavigation();
-
   const { userData } = useUserData();
   const [initialRoute, setInitialRoute] = useState("FrontPage");
 
   console.log("userData", userData);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (userData !== null) {
       setInitialRoute("BottomTabsNavigator");
     } else {
       setInitialRoute("FrontPage");
     }
-    console.log("initialRoute use", initialRoute);
-  }, [userData, initialRoute]);
-
-  console.log("initialRoutedsadsads", initialRoute);
-
+    // console.log("initialRoute use", initialRoute);
+  }, [userData]);
+  // console.log("initialRoutedsadsads", initialRoute);
   return (
     <>
       <Stack.Navigator
@@ -63,6 +57,16 @@ const StackNavigation = () => {
             />
             <Stack.Screen
               options={{ headerShown: false }}
+              name="OTPVerify"
+              component={OTPVerify}
+            />
+            <Stack.Screen
+              options={{ headerShown: false }}
+              name="PasswordVerify"
+              component={PasswordVerify}
+            />
+            <Stack.Screen
+              options={{ headerShown: false }}
               name="EmailRecover"
               component={EmailRecover}
             />
@@ -80,16 +84,6 @@ const StackNavigation = () => {
               options={{ headerShown: false }}
               name="ForgotPassword"
               component={ForgotPassword}
-            />
-            <Stack.Screen
-              options={{ headerShown: false }}
-              name="OTPVerify"
-              component={OTPVerify}
-            />
-            <Stack.Screen
-              options={{ headerShown: false }}
-              name="PasswordVerify"
-              component={PasswordVerify}
             />
             <Stack.Screen
               options={{ headerShown: false }}
@@ -126,13 +120,23 @@ const StackNavigation = () => {
             />
             <Stack.Screen
               options={{ headerShown: false }}
-              name="Login"
-              component={Login}
+              name="OTPVerify"
+              component={OTPVerify}
             />
             <Stack.Screen
               options={{ headerShown: false }}
               name="VerifyLogin"
               component={VerifyLogin}
+            />
+            <Stack.Screen
+              options={{ headerShown: false }}
+              name="PasswordVerify"
+              component={PasswordVerify}
+            />
+            <Stack.Screen
+              options={{ headerShown: false }}
+              name="Login"
+              component={Login}
             />
             <Stack.Screen
               options={{ headerShown: false }}
@@ -156,16 +160,6 @@ const StackNavigation = () => {
             />
             <Stack.Screen
               options={{ headerShown: false }}
-              name="OTPVerify"
-              component={OTPVerify}
-            />
-            <Stack.Screen
-              options={{ headerShown: false }}
-              name="PasswordVerify"
-              component={PasswordVerify}
-            />
-            <Stack.Screen
-              options={{ headerShown: false }}
               name="UploadFrontPage"
               component={UploadFrontPage}
             />
@@ -184,11 +178,6 @@ const StackNavigation = () => {
               name="UpdateBackImage"
               component={UpdateBackImage}
             />
-            {/* <Stack.Screen
-              options={{ headerShown: false }}
-              name="BottomTabsNavigator"
-              component={BottomTabsNavigator}
-            /> */}
           </>
         )}
       </Stack.Navigator>

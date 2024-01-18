@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import {
   StyleSheet,
   Text,
@@ -14,7 +15,6 @@ import {
   TouchableWithoutFeedback,
   ActivityIndicator,
 } from "react-native";
-import React, { useState } from "react";
 import Header from "../../Component/Header";
 import {
   widthPercentageToDP as wp,
@@ -34,27 +34,33 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+
   const toggleShowPassword = () => {
     setShowPassword(!showPassword);
   };
+
   const handleEmailChange = (text) => {
     const trimmedEmail = text.trim();
     setEmail(trimmedEmail.toLowerCase());
   };
+
   const handleVerificationError = (errorMessage) => {
     Alert.alert("Error", errorMessage);
   };
 
   const handleLogin = async () => {
     try {
-      // Basic validation to check if each part is not empty
+      setIsLoading(true);
+
       if (!email) {
         handleVerificationError("Please enter your email.");
+        setIsLoading(false);
         return;
       }
 
       if (!password) {
         handleVerificationError("Please enter your password.");
+        setIsLoading(false);
         return;
       }
 
@@ -67,20 +73,25 @@ const Login = () => {
       await axios
         .post(apiUrl, requestData)
         .then((res) => {
+          console.log("Hello")
           setUserData(res.data.user);
           navigation.navigate("VerifyLogin");
         })
         .catch((error) => {
           console.log(error);
-          // Handle other errors if needed
           handleVerificationError(
             "Invalid email or password. Please try again"
           );
+        })
+        .finally(() => {
+          setIsLoading(false);
         });
     } catch (error) {
       console.error("Error:", error);
+      setIsLoading(false);
     }
   };
+
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <SafeAreaView style={{ flex: 1, backgroundColor: "#000000" }}>
@@ -101,8 +112,7 @@ const Login = () => {
           <View style={styles.container}>
             <Header
               title="Welcome Back"
-              subTitle="Enter your email address and password
-            "
+              subTitle="Enter your email address and password"
             />
             <>
               <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
@@ -217,21 +227,18 @@ const Login = () => {
                 </Text>
               </TouchableOpacity>
             </View>
-            {isLoading ? (
-              <View
-                style={{
-                  width: wp("88%"),
-                  borderRadius: 10,
-                  alignItems: "center",
-                  justifyContent: "center",
-                  alignSelf: "center",
-                  marginTop: 20,
-                }}
-              >
-                <ActivityIndicator size={50} color="#069FF8" />
-              </View>
-            ) : (
-              <>
+            <>
+              {isLoading ? (
+                <ActivityIndicator
+                  size={50}
+                  color="#069FF8"
+                  style={{
+                    position: "absolute",
+                    bottom: 80,
+                    alignSelf: "center",
+                  }}
+                />
+              ) : (
                 <LinearGradient
                   colors={["#6FCAFF", "#0081CC"]}
                   style={styles.button}
@@ -242,6 +249,7 @@ const Login = () => {
                       flex: 1,
                       alignItems: "center",
                       justifyContent: "center",
+                      opacity: isLoading ? 0 : 1,
                     }}
                   >
                     <Text
@@ -256,8 +264,8 @@ const Login = () => {
                     </Text>
                   </TouchableOpacity>
                 </LinearGradient>
-              </>
-            )}
+              )}
+            </>
             <View
               style={{
                 justifyContent: "center",
@@ -266,7 +274,7 @@ const Login = () => {
                 flex: 1,
                 position: "absolute",
                 alignSelf: "center",
-                bottom: 25,
+                bottom: 45,
               }}
             >
               <Text
@@ -279,7 +287,7 @@ const Login = () => {
               >
                 Don’t have an account?
               </Text>
-              <TouchableOpacity onPress={() => navigation.navigate("SignUp")}>
+              <TouchableOpacity onPress={() => navigation.navigate("SignUP")}>
                 <Text
                   style={{
                     fontFamily: "Roboto-Regular",
@@ -327,6 +335,6 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     alignSelf: "center",
     position: "absolute",
-    bottom: 60,
+    bottom: 80,
   },
 });

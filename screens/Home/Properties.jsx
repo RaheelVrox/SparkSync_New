@@ -35,16 +35,13 @@ const Properties = ({ route }) => {
       setShowInitialAlert(true);
     }
   }, [route?.params]);
-
   useEffect(() => {
     const fetchData = async () => {
       try {
         setIsLoading(true);
         const storedUserData = await AsyncStorage.getItem("userData");
         console.log("storedUserData...", storedUserData);
-
         const userDataFromStorage = JSON.parse(storedUserData) || { id: null };
-
         if (userDataFromStorage !== null) {
           setuser_id(userDataFromStorage?.id);
           const apiUrl = `${ApiData.url}/api/v1/frontimage/${userDataFromStorage?.id}`;
@@ -60,16 +57,13 @@ const Properties = ({ route }) => {
     };
 
     fetchData();
-
     const unsubscribe = navigation.addListener("focus", () => {
       fetchData();
     });
-
     return () => {
       unsubscribe();
     };
   }, [navigation]);
-
   const hideInitialAlert = () => {
     setShowInitialAlert(false);
   };
@@ -135,7 +129,7 @@ const Properties = ({ route }) => {
                                   fontFamily: "Roboto-Regular",
                                   fontSize: wp(4),
                                   fontWeight: "600",
-                                  color: "#122359",
+                                  color: "#fff",
                                 }}
                               >
                                 Property{idx + 1}:
@@ -267,7 +261,7 @@ const styles = StyleSheet.create({
     height: hp("10%"),
     alignItems: "center",
     borderWidth: 1,
-    borderColor: "#4A5F71",
+    borderColor: "#607A8C",
   },
   loader: {
     flex: 1,

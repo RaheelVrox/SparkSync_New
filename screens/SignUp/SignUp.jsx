@@ -47,14 +47,12 @@ const SignUP = () => {
   };
   const handleSignUp = async () => {
     setIsLoading(true);
-
     try {
       if (!name || !email || !phone_number || !password) {
         Alert.alert("Validation Error", "Please enter all required details");
         setIsLoading(false);
         return;
       }
-
       if (password.length < 8) {
         Alert.alert("Error", "Password must be at least 8 characters long");
         setIsLoading(false);
@@ -80,6 +78,7 @@ const SignUP = () => {
             setUserData(response.data.newUser);
             console.log("store", response.data.newUser);
             setIsLoading(false);
+            // Move navigation here after a successful response
             navigation.navigate("OTPVerify");
           }
         })
@@ -90,6 +89,7 @@ const SignUP = () => {
             "User with this email already exist!";
           Alert.alert("Validation Error", errorMessage);
           setIsLoading(false);
+          props.onSignUpSuccess();
         });
     } catch (error) {
       console.error("Error:", error);
@@ -352,7 +352,7 @@ const SignUP = () => {
                               fontFamily: "Roboto-Regular",
                               fontSize: 14,
                               fontWeight: "600",
-                              color: "#346AFE",
+                              color: "#069FF8",
                             }}
                           >
                             {" "}

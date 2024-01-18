@@ -40,12 +40,13 @@ const FrequentlyQuestion = () => {
               subTitle="Some of the ways that Texans can save energy"
             />
             <View style={{ paddingTop: 35 }}>
-              <SavingTips
-                heading="What is Spark Sync?"
-                tips={[
-                  "Spark Sync is an electricity provider finding app that helps you to find the best plan for your needs.",
-                ]}
-              />
+              <View style={styles.savingcontainer}>
+                <Text style={styles.heading}>What is Spark Sync?</Text>
+                <Text style={styles.text}>
+                  Spark Sync is an electricity provider finding app that helps
+                  you to find the best plan for your needs.
+                </Text>
+              </View>
             </View>
             <FAQ text="How does Spark Sync work?" />
             <FAQ text="Is Spark Sync free to use?" />
@@ -66,5 +67,26 @@ const styles = StyleSheet.create({
   container: {
     paddingTop: wp(14),
     flex: 1,
+  },
+  savingcontainer: {
+    borderWidth: 1,
+    borderColor: "#607A8C",
+    borderRadius: 20,
+    padding: 20,
+    marginHorizontal: 24,
+    marginBottom: 20,
+  },
+  heading: {
+    fontSize: 18,
+    fontWeight: "bold",
+    fontFamily: "Roboto-Regular",
+    marginBottom: 10,
+    color: "#069FF8",
+  },
+  text: {
+    color: "#B6B6B6",
+    fontFamily: "Roboto-Regular",
+    fontSize: 16,
+    fontWeight: "400",
   },
 });
