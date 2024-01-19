@@ -206,7 +206,8 @@ const styles = StyleSheet.create({
   otpInput: {
     width: wp(15.6),
     height: wp(15.6),
-    borderWidth: 1,
+    borderWidth: 1.5,
+    borderColor: "#607A8C",
     borderColor: "white",
     fontSize: wp(6),
     textAlign: "center",
@@ -217,7 +218,6 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontFamily: "Roboto-Regular",
     backgroundColor: "#04202C",
-    borderColor: "#4A5F71",
     elevation: 5,
     shadowColor: "#4A5F71",
   },

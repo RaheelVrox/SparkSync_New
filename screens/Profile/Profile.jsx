@@ -193,7 +193,7 @@ const styles = StyleSheet.create({
     height: 40,
     width: 130,
     borderWidth: 1,
-    borderColor: "#4A5F71",
+    borderColor: "#607A8C",
     elevation: 5,
     backgroundColor: "#04202C",
     justifyContent: "center",
