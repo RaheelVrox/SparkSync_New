@@ -142,7 +142,7 @@ const Properties = ({ route }) => {
                                 alignItems: "center",
                                 justifyContent: "space-evenly",
                                 marginLeft: wp(6),
-                                gap: wp(5),
+                                gap: wp(2),
                               }}
                             >
                               <Image
@@ -180,9 +180,8 @@ const Properties = ({ route }) => {
             </ScrollView>
           </>
         )}
-
         {/* Custom modal for initial alert */}
-        <Modal isVisible={showInitialAlert} onBackdropPress={hideInitialAlert}>
+        {/* <Modal isVisible={showInitialAlert} onBackdropPress={hideInitialAlert}>
           <LinearGradient
             colors={["#607A8C", "#607A8C"]}
             style={{
@@ -227,7 +226,7 @@ const Properties = ({ route }) => {
               </Text>
             </TouchableOpacity>
           </LinearGradient>
-        </Modal>
+        </Modal> */}
       </View>
     </ImageBackground>
   );

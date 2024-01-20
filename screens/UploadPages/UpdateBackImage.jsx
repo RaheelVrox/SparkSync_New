@@ -107,12 +107,13 @@ const UpdateBackImage = ({ route, navigation }) => {
       });
 
       setUploadMessage("");
-      navigation.navigate("HomeStack", {
-        screen: "Homepage",
-        params: {
-          showAlert: true,
-        },
-      });
+      // navigation.navigate("HomeStack", {
+      //   screen: "Congratulations",
+      //   params: {
+      //     showAlert: true,
+      //   },
+      // });
+      navigation.navigate("Congratulations");
     } catch (error) {
       console.error("Error uploading image", error);
       setUploadMessage("Error uploading image. Please try again.");

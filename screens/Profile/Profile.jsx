@@ -134,7 +134,7 @@ const Profile = () => {
                 textAlign: "center",
                 justifyContent: "center",
                 alignItems: "center",
-                marginHorizontal: 8,
+                marginHorizontal: 60,
                 alignSelf: "center",
                 marginTop: 8,
               }}

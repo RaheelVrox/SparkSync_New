@@ -28,8 +28,8 @@ const HomePage = () => {
           flex: 1,
           left: 0,
           top: 0,
-          width: Dimensions.get("screen").width,
-          height: Dimensions.get("screen").height,
+          // width: Dimensions.get("screen").width,
+          // height: Dimensions.get("screen").height,
         }}
         resizeMode="cover"
       >
@@ -80,7 +80,7 @@ const HomePage = () => {
             }}
             source={require("../../assets/Electricity.png")}
           />
-          <View style={{ paddingTop: wp(70), marginHorizontal: 24 }}>
+          <View style={{ paddingTop: wp(74), marginHorizontal: 24 }}>
             <Text
               style={{
                 color: "#DEB9A9",
@@ -118,7 +118,7 @@ const HomePage = () => {
                 <TouchableOpacity
                   onPress={() => navigation.navigate("EnergySavingTips")}
                   style={{
-                    width: wp("36.5%"),
+                    width: wp("37.5%"),
                     height: hp("6.5%"),
                     backgroundColor: "#04202C",
                     justifyContent: "center",
@@ -132,19 +132,30 @@ const HomePage = () => {
                   <Text
                     style={{
                       fontFamily: "Roboto-Regular",
-                      fontSize: 12,
+                      fontSize: 13,
                       fontWeight: "800",
                       color: "#fff",
                       textAlign: "center",
                     }}
                   >
-                    Energy Saving Tips
+                    Energy
+                  </Text>
+                  <Text
+                    style={{
+                      fontFamily: "Roboto-Regular",
+                      fontSize: 13,
+                      fontWeight: "800",
+                      color: "#fff",
+                      textAlign: "center",
+                    }}
+                  >
+                    Saving Tips
                   </Text>
                 </TouchableOpacity>
                 <TouchableOpacity
                   onPress={() => navigation.navigate("FrequentlyQuestion")}
                   style={{
-                    width: wp("36.5%"),
+                    width: wp("37.5%"),
                     height: hp("6.5%"),
                     backgroundColor: "#04202C",
                     justifyContent: "center",
@@ -160,13 +171,24 @@ const HomePage = () => {
                   <Text
                     style={{
                       fontFamily: "Roboto-Regular",
-                      fontSize: 12,
+                      fontSize: 13,
                       fontWeight: "800",
                       color: "#fff",
                       textAlign: "center",
                     }}
                   >
-                    Frequently Asked Questions
+                    Frequently
+                  </Text>
+                  <Text
+                    style={{
+                      fontFamily: "Roboto-Regular",
+                      fontSize: 13,
+                      fontWeight: "800",
+                      color: "#fff",
+                      textAlign: "center",
+                    }}
+                  >
+                    Asked Questions
                   </Text>
                 </TouchableOpacity>
               </>
@@ -182,8 +204,8 @@ const HomePage = () => {
             <LinearGradient
               colors={["#04202C", "#04202C"]}
               style={{
-                width: "25%",
-                height: "55%",
+                width: "26.5%",
+                height: "56.5%",
                 marginHorizontal: 10,
                 marginVertical: 2,
                 padding: 3,
@@ -236,10 +258,10 @@ const HomePage = () => {
             <LinearGradient
               colors={["#04202C", "#04202C"]}
               style={{
-                width: "25%",
-                height: "55%",
+                width: "26.5%",
+                height: "56.5%",
                 borderRadius: 20,
-                marginHorizontal: 10,
+                // marginHorizontal: 10,
                 marginVertical: 2,
                 padding: 3,
                 borderWidth: 1,
@@ -290,8 +312,8 @@ const HomePage = () => {
             <LinearGradient
               colors={["#04202C", "#04202C"]}
               style={{
-                width: "25%",
-                height: "55%",
+                width: "26.5%",
+                height: "56.5%",
                 borderRadius: 20,
                 marginHorizontal: 10,
                 marginVertical: 2,

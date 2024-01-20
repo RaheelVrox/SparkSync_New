@@ -34,7 +34,6 @@ const AboutTexas = () => {
         }}
         resizeMode="cover"
       >
-        {/* <ScrollView> */}
         <View style={styles.container}>
           <TouchableOpacity onPress={() => navigation.navigate("HomePage")}>
             <Image
@@ -92,7 +91,6 @@ const AboutTexas = () => {
             </ScrollView>
           </View>
         </View>
-        {/* </ScrollView> */}
       </ImageBackground>
     </SafeAreaView>
   );
@@ -110,7 +108,7 @@ const styles = StyleSheet.create({
     borderColor: "#607A8C",
     borderRadius: 20,
     padding: 20,
-    marginHorizontal: 25,
+    marginHorizontal: 24,
     marginTop: 30,
   },
   text: {
@@ -118,6 +116,6 @@ const styles = StyleSheet.create({
     fontFamily: "Roboto-Regular",
     fontSize: 16,
     fontWeight: "500",
-    lineHeight: 24,
+    lineHeight: 30,
   },
 });

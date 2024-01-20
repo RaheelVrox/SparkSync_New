@@ -54,17 +54,15 @@ const EnergySavingTips = () => {
             <SavingTips
               heading="Water Heaters"
               tips={[
-                "Use LED bulbs instead of incandescent bulbs. They last longer and use less electricity.",
-                "Turn off lights when you leave a room or when you don’t need them. You can also use timers or motion sensors to turn them off automatically.",
-                "Use natural light as much as possible during the day. Open curtains, blinds, or shades to let the sun in.",
+                "Fix any leaks in your faucets and pipes. Warm-water leaks waste a lot of energy and money.",
+                "Drain your hot water tank regularly to remove sediment and prevent clogging. This will make your water heater more efficient and last longer.",
               ]}
             />
             <SavingTips
               heading="Water Heaters"
               tips={[
-                "Use LED bulbs instead of incandescent bulbs. They last longer and use less electricity.",
-                "Turn off lights when you leave a room or when you don’t need them. You can also use timers or motion sensors to turn them off automatically.",
-                "Use natural light as much as possible during the day. Open curtains, blinds, or shades to let the sun in.",
+                "Fix any leaks in your faucets and pipes. Warm-water leaks waste a lot of energy and money.",
+                "Drain your hot water tank regularly to remove sediment and prevent clogging. This will make your water heater more efficient and last longer.",
               ]}
             />
           </View>

@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
   },
   tipContainer: {
     flexDirection: "row",
-    marginBottom: 10,
+    // marginBottom: 10
     marginHorizontal: 10,
   },
   text: {
@@ -47,6 +47,7 @@ const styles = StyleSheet.create({
     fontFamily: "Roboto-Regular",
     fontSize: 16,
     fontWeight: "400",
+    lineHeight:24,
   },
 });
 

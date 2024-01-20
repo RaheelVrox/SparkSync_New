@@ -13,7 +13,7 @@ import {
   Keyboard,
   Alert,
 } from "react-native";
-import Header from "../../Component/Header.jsx";
+import OTPHeader from "../../Component/OTPHeader.jsx";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
@@ -52,17 +52,33 @@ const OTPVerify = () => {
   };
   const handleVerifyCode = async () => {
     try {
-      const apiUrl = `${ApiData.url}/api/v1/user/verify-registration/`;
+      const apiUrl = `${ApiData.url}/api/v1/user/verify/`;
       const requestData = {
         otp: otp.join(""),
       };
+
       await axios
         .post(apiUrl, requestData)
         .then(async (response) => {
           navigation.navigate("UploadFrontPage");
         })
         .catch((error) => {
-          handleVerificationError("Invalid OTP: Please try again");
+          if (error.response) {
+            // console.error("Server responded with error status:", error.response.status);
+            if (error.response.data && error.response.data.message) {
+              handleVerificationError(error.response.data.message);
+            } else {
+              handleVerificationError("Invalid OTP: Please try again");
+            }
+          } else if (error.request) {
+            // console.error("No response received:", error.request);
+            handleVerificationError("Failed to verify OTP. Please try again.");
+          } else {
+            // console.error("Request setup error:", error.message);
+            handleVerificationError(
+              "An unexpected error occurred. Please try again."
+            );
+          }
         });
     } catch (error) {
       console.error("Error:", error);
@@ -102,7 +118,7 @@ const OTPVerify = () => {
           resizeMode="cover"
         >
           <View style={styles.container}>
-            <Header
+            <OTPHeader
               title="Verify Login"
               subTitle="Enter OTP Code sent to your email. The code will expire in 01:30"
             />
@@ -206,7 +222,6 @@ const styles = StyleSheet.create({
     height: wp(15.6),
     borderWidth: 1.5,
     borderColor: "#607A8C",
-    borderColor: "white",
     fontSize: wp(6),
     textAlign: "center",
     marginHorizontal: 18,

@@ -6,15 +6,10 @@ import {
 } from "react-native-responsive-screen";
 import { useNavigation } from "@react-navigation/native";
 
-const Header = ({ title, subTitle }) => {
-  const navigation = useNavigation();
-  const goBack = () => {
-    navigation.goBack();
-  };
+const OTPHeader = ({ title, subTitle }) => {
   return (
     <>
       <TouchableOpacity
-        onPress={goBack}
         style={{
           width: wp("18%"),
           justifyContent: "flex-start",
@@ -56,6 +51,6 @@ const Header = ({ title, subTitle }) => {
   );
 };
 
-export default Header;
+export default OTPHeader;
 
 const styles = StyleSheet.create({});

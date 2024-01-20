@@ -13,7 +13,6 @@ import {
   Keyboard,
   Alert,
 } from "react-native";
-import Header from "../../Component/Header.jsx";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
@@ -23,6 +22,7 @@ import { useNavigation } from "@react-navigation/native";
 import axios from "axios";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import ApiData from "../../apiconfig.js";
+import OTPHeader from "../../Component/OTPHeader.jsx";
 
 const VerifyLogin = () => {
   const navigation = useNavigation();
@@ -56,13 +56,30 @@ const VerifyLogin = () => {
       const requestData = {
         otp: otp.join(""),
       };
+
       await axios
         .post(apiUrl, requestData)
         .then(async (response) => {
           navigation.navigate("BottomTabsNavigator");
         })
         .catch((error) => {
-          handleVerificationError("Invalid OTP: Please try again");
+          if (error.response) {
+            // console.error("Server responded with error status:", error.response.status);
+
+            if (error.response.data && error.response.data.message) {
+              handleVerificationError(error.response.data.message);
+            } else {
+              handleVerificationError("Invalid OTP: Please try again");
+            }
+          } else if (error.request) {
+            // console.error("No response received:", error.request);
+            handleVerificationError("Failed to verify OTP. Please try again.");
+          } else {
+            // console.error("Request setup error:", error.message);
+            handleVerificationError(
+              "An unexpected error occurred. Please try again."
+            );
+          }
         });
     } catch (error) {
       console.error("Error:", error);
@@ -104,7 +121,7 @@ const VerifyLogin = () => {
           resizeMode="cover"
         >
           <View style={styles.container}>
-            <Header
+            <OTPHeader
               title="Verify Login"
               subTitle="Enter OTP Code sent to your email. The code will expire in 01:30"
             />

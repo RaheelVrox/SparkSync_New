@@ -23,6 +23,7 @@ import FrequentlyQuestion from "../screens/Home/FrequentlyQuestion";
 import Properties from "../screens/Home/Properties";
 import DeregulatedAreas from "../screens/Home/DeregulatedAreas";
 import AboutTexas from "../screens/Home/AboutTexas";
+import Congratulations from "../screens/CongratulationsPage/Congratulations";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -196,6 +197,14 @@ const AddNew = ({ navigation }) => {
         }}
         name="UpdateBackImage"
         component={UpdateBackImage}
+      />
+      <Stack.Screen
+        options={{
+          headerShown: false,
+          headerTitle: "",
+        }}
+        name="Congratulations"
+        component={Congratulations}
       />
     </Stack.Navigator>
   );

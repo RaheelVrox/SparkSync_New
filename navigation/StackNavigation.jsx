@@ -17,6 +17,7 @@ import VerifyLogin from "../screens/OTPAuthentication/VerifyLogin";
 import PasswordVerify from "../screens/OTPAuthentication/PasswordVerify";
 import SignUP from "../screens/SignUp/SignUp";
 import { useNavigation } from "@react-navigation/native";
+import Congratulations from "../screens/CongratulationsPage/Congratulations";
 
 const Stack = createNativeStackNavigator();
 const StackNavigation = () => {
@@ -105,6 +106,11 @@ const StackNavigation = () => {
               name="UpdateBackImage"
               component={UpdateBackImage}
             />
+            <Stack.Screen
+              options={{ headerShown: false }}
+              name="Congratulations"
+              component={Congratulations}
+            />
           </>
         ) : (
           <>
@@ -177,6 +183,11 @@ const StackNavigation = () => {
               options={{ headerShown: false }}
               name="UpdateBackImage"
               component={UpdateBackImage}
+            />
+            <Stack.Screen
+              options={{ headerShown: false }}
+              name="Congratulations"
+              component={Congratulations}
             />
           </>
         )}

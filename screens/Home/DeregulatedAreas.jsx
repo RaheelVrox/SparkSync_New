@@ -282,14 +282,7 @@ const DeregulatedAreas = () => {
               )}
             />
           </View>
-
-          <View>
-            {/* <FlatList
-              data={rowsData}
-              renderItem={({ item }) => <View>{renderItem({ item })}</View>}
-              keyExtractor={(item, index) => index.toString()}
-            /> */}
-          </View>
+          <View></View>
         </View>
       </ImageBackground>
     </SafeAreaView>
@@ -329,15 +322,12 @@ const styles = StyleSheet.create({
   divider: {
     height: 1.5,
     backgroundColor: "#607A8C",
-    marginTop: 20,
-    marginBottom: 20,
+    marginTop: 15,
+    marginBottom: 14,
   },
   rowContainer: {
     flexDirection: "row",
     justifyContent: "flex-start",
-    // backgroundColor: "red",
-    // paddingHorizontal: 10,
-    // marginHorizontal: 20,
   },
   column: {
     padding: 10,
@@ -347,7 +337,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "flex-start",
-    paddingVertical: 10,
+    paddingVertical: 3,
     paddingHorizontal: 0,
   },
   cityText: {
