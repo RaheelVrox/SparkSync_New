@@ -29,44 +29,41 @@ const EnergySavingTips = () => {
           flex: 1,
           left: 0,
           top: 0,
-          width: Dimensions.get("screen").width,
-          height: Dimensions.get("screen").height,
         }}
         resizeMode="cover"
       >
-        <ScrollView
-          contentContainerStyle={{ flexGrow: 1 }}
-          style={styles.container}
-        >
-          <Header
-            title="Energy Saving Tips"
-            subTitle="Some of the ways that Texans can save energy "
-          />
-          <View style={{ paddingTop: 35 }}>
-            <SavingTips
-              heading="Lighting"
-              tips={[
-                "Use LED bulbs instead of incandescent bulbs. They last longer and use less electricity.",
-                "Turn off lights when you leave a room or when you don’t need them. You can also use timers or motion sensors to turn them off automatically.",
-                "Use natural light as much as possible during the day. Open curtains, blinds, or shades to let the sun in.",
-              ]}
+        <View style={styles.container}>
+          <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+            <Header
+              title="Energy Saving Tips"
+              subTitle="Some of the ways that Texans can save energy "
             />
-            <SavingTips
-              heading="Water Heaters"
-              tips={[
-                "Fix any leaks in your faucets and pipes. Warm-water leaks waste a lot of energy and money.",
-                "Drain your hot water tank regularly to remove sediment and prevent clogging. This will make your water heater more efficient and last longer.",
-              ]}
-            />
-            <SavingTips
-              heading="Water Heaters"
-              tips={[
-                "Fix any leaks in your faucets and pipes. Warm-water leaks waste a lot of energy and money.",
-                "Drain your hot water tank regularly to remove sediment and prevent clogging. This will make your water heater more efficient and last longer.",
-              ]}
-            />
-          </View>
-        </ScrollView>
+            <View style={{ paddingTop: 35 }}>
+              <SavingTips
+                heading="Lighting"
+                tips={[
+                  "Use LED bulbs instead of incandescent bulbs. They last longer and use less electricity.",
+                  "Turn off lights when you leave a room or when you don’t need them. You can also use timers or motion sensors to turn them off automatically.",
+                  "Use natural light as much as possible during the day. Open curtains, blinds, or shades to let the sun in.",
+                ]}
+              />
+              <SavingTips
+                heading="Water Heaters"
+                tips={[
+                  "Fix any leaks in your faucets and pipes. Warm-water leaks waste a lot of energy and money.",
+                  "Drain your hot water tank regularly to remove sediment and prevent clogging. This will make your water heater more efficient and last longer.",
+                ]}
+              />
+              <SavingTips
+                heading="Water Heaters"
+                tips={[
+                  "Fix any leaks in your faucets and pipes. Warm-water leaks waste a lot of energy and money.",
+                  "Drain your hot water tank regularly to remove sediment and prevent clogging. This will make your water heater more efficient and last longer.",
+                ]}
+              />
+            </View>
+          </ScrollView>
+        </View>
       </ImageBackground>
     </SafeAreaView>
   );

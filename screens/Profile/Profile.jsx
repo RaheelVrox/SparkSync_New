@@ -7,6 +7,7 @@ import {
   Dimensions,
   Image,
   TouchableOpacity,
+  Linking,
 } from "react-native";
 import React, { useEffect, useState } from "react";
 import {
@@ -156,13 +157,25 @@ const Profile = () => {
             >
               <Text style={styles.text}>Reset Password</Text>
             </TouchableOpacity>
-            <TouchableOpacity>
+            <TouchableOpacity
+              onPress={() =>
+                Linking.openURL("https://sparksync.pro/privacy-policy/")
+              }
+            >
               <Text style={styles.text}>Contact</Text>
             </TouchableOpacity>
-            <TouchableOpacity>
+            <TouchableOpacity
+              onPress={() =>
+                Linking.openURL("https://sparksync.pro/privacy-policy/")
+              }
+            >
               <Text style={styles.text}>Terms of Services</Text>
             </TouchableOpacity>
-            <TouchableOpacity>
+            <TouchableOpacity
+              onPress={() =>
+                Linking.openURL("https://sparksync.pro/privacy-policy/")
+              }
+            >
               <Text style={styles.text}>Privacy Policy</Text>
             </TouchableOpacity>
             <View style={styles.divider}></View>

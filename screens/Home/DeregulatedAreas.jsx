@@ -217,8 +217,6 @@ const DeregulatedAreas = () => {
           flex: 1,
           left: 0,
           top: 0,
-          width: Dimensions.get("screen").width,
-          height: Dimensions.get("screen").height,
         }}
         resizeMode="cover"
       >

@@ -53,10 +53,6 @@ const FAQList = () => {
       answer: "Your answer for how Spark Sync works.",
     },
     {
-      question: "Is Spark Sync free to use?",
-      answer: "Your answer for how Spark Sync works.",
-    },
-    {
       question: "Can I trust the information provided by Spark Sync?",
       answer: "Your answer for how Spark Sync works.",
     },

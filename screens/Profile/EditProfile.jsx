@@ -222,7 +222,7 @@ const EditProfile = ({ route }) => {
                         ...styles.inputField,
                         fontSize: 14,
                         fontFamily: "Roboto-Regular",
-                        fontWeight: "400",
+                        fontWeight: "600",
                         color: inputColor,
                       }}
                       value={name}
@@ -246,7 +246,7 @@ const EditProfile = ({ route }) => {
                         ...styles.inputField,
                         fontSize: 14,
                         fontFamily: "Roboto-Regular",
-                        fontWeight: "400",
+                        fontWeight: "600",
                         color: addressInputColor,
                         height: hp("7.5%"),
                       }}
@@ -270,7 +270,7 @@ const EditProfile = ({ route }) => {
                         ...styles.inputField,
                         fontSize: 14,
                         fontFamily: "Roboto-Regular",
-                        fontWeight: "400",
+                        fontWeight: "600",
                         color: phoneInputColor,
                       }}
                       value={phone_number}
@@ -294,7 +294,7 @@ const EditProfile = ({ route }) => {
                         ...styles.inputField,
                         fontSize: 14,
                         fontFamily: "Roboto-Regular",
-                        fontWeight: "400",
+                        fontWeight: "600",
                         color: emailInputColor,
                         height: hp("7.5%"),
                       }}

@@ -7,7 +7,6 @@ import {
   TouchableOpacity,
   ImageBackground,
   ActivityIndicator,
-  Dimensions,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import {
@@ -87,12 +86,15 @@ const UpdateBackImage = ({ route, navigation }) => {
 
     try {
       setUploadMessage("Uploading image. Please wait...");
+      const frontimage_id = await AsyncStorage.getItem("frontimage_id");
+      console.log("frontimagid...",frontimage_id)
+      console.log("frontimagid...",typeof frontimage_id)
       const formData = new FormData();
       const filename = selectedImage.uri.substring(
         selectedImage.uri.lastIndexOf("/") + 1
       );
 
-      formData.append("backimage", {
+      formData.append("back_image", {
         uri: selectedImage.uri,
         type: "image/jpeg",
         name: filename,
@@ -100,19 +102,17 @@ const UpdateBackImage = ({ route, navigation }) => {
 
       formData.append("user_id", user_id);
 
-      await axios.post(`${ApiData.url}/api/v1/backimage/create`, formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      });
+      await axios.post(
+        `${ApiData.url1}/api/v1/propertyimage/update/${frontimage_id} `,
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
 
       setUploadMessage("");
-      // navigation.navigate("HomeStack", {
-      //   screen: "Congratulations",
-      //   params: {
-      //     showAlert: true,
-      //   },
-      // });
       navigation.navigate("Congratulations");
     } catch (error) {
       console.error("Error uploading image", error);

@@ -28,6 +28,7 @@ const styles = StyleSheet.create({
     padding: 20,
     marginHorizontal: 24,
     marginBottom: 20,
+    flex: 1,
   },
   heading: {
     fontSize: 18,
@@ -38,7 +39,7 @@ const styles = StyleSheet.create({
   },
   tipContainer: {
     flexDirection: "row",
-    // marginBottom: 10
+    marginBottom: 10,
     marginHorizontal: 10,
   },
   text: {
@@ -47,7 +48,7 @@ const styles = StyleSheet.create({
     fontFamily: "Roboto-Regular",
     fontSize: 16,
     fontWeight: "400",
-    lineHeight:24,
+    lineHeight: 24,
   },
 });
 

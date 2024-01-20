@@ -23,8 +23,6 @@ const FrequentlyQuestion = () => {
           flex: 1,
           left: 0,
           top: 0,
-          width: Dimensions.get("screen").width,
-          height: Dimensions.get("screen").height,
         }}
         resizeMode="cover"
       >
@@ -34,7 +32,7 @@ const FrequentlyQuestion = () => {
               title="Frequently Asked Questions"
               subTitle="Some of the ways that Texans can save energy"
             />
-            <View style={{ paddingTop: wp(14) }}>
+            <View style={{ paddingTop: wp(12) }}>
               <FAQ question="" answer="" />
             </View>
           </View>

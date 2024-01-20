@@ -28,8 +28,6 @@ const HomePage = () => {
           flex: 1,
           left: 0,
           top: 0,
-          // width: Dimensions.get("screen").width,
-          // height: Dimensions.get("screen").height,
         }}
         resizeMode="cover"
       >
@@ -80,7 +78,7 @@ const HomePage = () => {
             }}
             source={require("../../assets/Electricity.png")}
           />
-          <View style={{ paddingTop: wp(74), marginHorizontal: 24 }}>
+          <View style={{ paddingTop: wp(75.5), marginHorizontal: 24 }}>
             <Text
               style={{
                 color: "#DEB9A9",
@@ -382,12 +380,13 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     width: wp(100),
-    paddingTop: 20,
+    flex: 1,
+    paddingTop: 50,
   },
   divider: {
     height: 1.8,
     backgroundColor: "#1D2A35",
-    marginTop: 20,
+    marginTop: 50,
     marginBottom: 20,
     marginHorizontal: 24,
   },

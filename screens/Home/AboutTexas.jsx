@@ -29,8 +29,6 @@ const AboutTexas = () => {
           flex: 1,
           left: 0,
           top: 0,
-          width: Dimensions.get("screen").width,
-          height: Dimensions.get("screen").height,
         }}
         resizeMode="cover"
       >
@@ -56,8 +54,8 @@ const AboutTexas = () => {
           >
             About Texas Electricity
           </Text>
-          <View style={styles.detailcontainer}>
-            <ScrollView>
+          <ScrollView>
+            <View style={styles.detailcontainer}>
               <Text style={styles.text}>
                 Texas electricity is a topic that affects many people in the
                 state, especially those who live in rural areas or have high
@@ -86,10 +84,18 @@ const AboutTexas = () => {
                 market that allows customers to choose their own electric
                 providers and plans. However, this also means that customers
                 have to shop around for the best rates and deals, and compare
-                different options before switching providers.
+                different options before switching providers. Texas electricity
+                is a topic that affects many people in the state, especially
+                those who live in rural areas or have high energy bills. Texas
+                is one of the largest electricity consumers in the United
+                States, and it has a deregulated power market that allows
+                customers to choose their own electric providers and plans.
+                However, this also means that customers have to shop around for
+                the best rates and deals, and compare different options before
+                switching providers.
               </Text>
-            </ScrollView>
-          </View>
+            </View>
+          </ScrollView>
         </View>
       </ImageBackground>
     </SafeAreaView>
@@ -110,12 +116,14 @@ const styles = StyleSheet.create({
     padding: 20,
     marginHorizontal: 24,
     marginTop: 30,
+    marginBottom: 20,
+    flex: 1,
   },
   text: {
     color: "#B6B6B6",
     fontFamily: "Roboto-Regular",
     fontSize: 16,
     fontWeight: "500",
-    lineHeight: 30,
+    lineHeight: 24,
   },
 });

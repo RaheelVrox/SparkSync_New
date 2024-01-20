@@ -7,7 +7,6 @@ import {
   TouchableOpacity,
   ImageBackground,
   ActivityIndicator,
-  Dimensions,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import {
@@ -98,7 +97,7 @@ const UpdateFrontImage = ({ route, navigation }) => {
       formData.append("user_id", user_id);
 
       const response = await axios.post(
-        `${ApiData.url}/api/v1/frontimage/create`,
+        `${ApiData.url1}/api/v1/propertyimage/create`,
         formData,
         {
           headers: {
@@ -106,7 +105,8 @@ const UpdateFrontImage = ({ route, navigation }) => {
           },
         }
       );
-
+      console.log("response.....", response.data.id);
+      await AsyncStorage.setItem("frontimage_id", JSON.stringify(response.data.id));
       setUploadMessage("");
 
       navigation.navigate("UploadBackPage");

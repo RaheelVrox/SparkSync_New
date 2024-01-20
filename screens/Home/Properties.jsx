@@ -3,23 +3,18 @@ import {
   StyleSheet,
   Text,
   View,
-  TouchableOpacity,
   Image,
   ScrollView,
   ActivityIndicator,
-  Platform,
   ImageBackground,
-  Alert,
 } from "react-native";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
 import { useNavigation } from "@react-navigation/native";
-import { LinearGradient } from "expo-linear-gradient";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
-import Modal from "react-native-modal";
 import ApiData from "../../apiconfig";
 import Header from "../../Component/Header";
 
@@ -44,10 +39,12 @@ const Properties = ({ route }) => {
         const userDataFromStorage = JSON.parse(storedUserData) || { id: null };
         if (userDataFromStorage !== null) {
           setuser_id(userDataFromStorage?.id);
-          const apiUrl = `${ApiData.url}/api/v1/frontimage/${userDataFromStorage?.id}`;
+          const apiUrl = `${ApiData.url1}/api/v1/propertyimage/${userDataFromStorage?.id}`;
+          console.log("API URL...:", apiUrl);
           const response = await axios.get(apiUrl);
+          console.log("API Response Image...:", response.data);
           const fetchedFrontImages = response.data;
-          setPropertiesData(fetchedFrontImages?.properties);
+          setPropertiesData(fetchedFrontImages);
         }
       } catch (error) {
         console.error("fetching data:", error);
@@ -64,9 +61,6 @@ const Properties = ({ route }) => {
       unsubscribe();
     };
   }, [navigation]);
-  const hideInitialAlert = () => {
-    setShowInitialAlert(false);
-  };
 
   return (
     <ImageBackground
@@ -148,13 +142,13 @@ const Properties = ({ route }) => {
                               <Image
                                 style={styles.image}
                                 source={{
-                                  uri: `${ApiData.url}/front_image/${el?.front_image_url}`,
+                                  uri: `${ApiData.url1}/property_image/${el?.frontimage}`,
                                 }}
                               />
                               <Image
                                 style={styles.image}
                                 source={{
-                                  uri: `${ApiData.url}/back_image/${el?.back_image_url}`,
+                                  uri: `${ApiData.url1}/property_image/${el?.back_image}`,
                                 }}
                               />
                             </View>
@@ -180,53 +174,6 @@ const Properties = ({ route }) => {
             </ScrollView>
           </>
         )}
-        {/* Custom modal for initial alert */}
-        {/* <Modal isVisible={showInitialAlert} onBackdropPress={hideInitialAlert}>
-          <LinearGradient
-            colors={["#607A8C", "#607A8C"]}
-            style={{
-              padding: 20,
-              borderRadius: 10,
-            }}
-          >
-            <Text
-              style={{
-                color: "#fff",
-                fontFamily: "Roboto-Regular",
-                fontSize: 18,
-                fontWeight: "700",
-                marginBottom: 10,
-              }}
-            >
-              Thank You!
-            </Text>
-            <Text
-              style={{
-                color: "#fff",
-                fontFamily: "Roboto-Regular",
-                fontSize: 14,
-                fontWeight: "400",
-                lineHeight: 20,
-              }}
-            >
-              Your bill has been submitted successfully. Our sales
-              representative will contact you soon.
-            </Text>
-            <TouchableOpacity
-              onPress={hideInitialAlert}
-              style={{
-                flexDirection: "row",
-                justifyContent: "flex-end",
-              }}
-            >
-              <Text
-                style={{ color: "#069FF8", fontSize: 18, fontWeight: "400" }}
-              >
-                OK
-              </Text>
-            </TouchableOpacity>
-          </LinearGradient>
-        </Modal> */}
       </View>
     </ImageBackground>
   );
