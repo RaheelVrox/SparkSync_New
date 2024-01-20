@@ -136,7 +136,7 @@ const Properties = ({ route }) => {
                                 alignItems: "center",
                                 justifyContent: "space-evenly",
                                 marginLeft: wp(6),
-                                gap: wp(2),
+                                gap: wp(1),
                               }}
                             >
                               <Image
@@ -203,11 +203,12 @@ const styles = StyleSheet.create({
   },
   image: {
     resizeMode: "contain",
-    width: wp("35%"),
+    width: wp("34%"),
     height: hp("10%"),
     alignItems: "center",
     borderWidth: 1,
     borderColor: "#607A8C",
+    borderRadius: 5,
   },
   loader: {
     flex: 1,
