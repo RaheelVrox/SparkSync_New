@@ -62,8 +62,8 @@ const Congratulations = () => {
                 lineHeight: 24,
               }}
             >
-              Your bill has been submitted successfully. Our sales
-              representative will contact you soon.
+              You have successfully submitted your bill to SparkSync. We are
+              working on it, and we will send you an email shortly.
             </Text>
           </View>
           <TouchableOpacity

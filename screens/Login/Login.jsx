@@ -14,6 +14,7 @@ import {
   Alert,
   TouchableWithoutFeedback,
   ActivityIndicator,
+  Image,
 } from "react-native";
 import Header from "../../Component/Header";
 import {
@@ -45,7 +46,7 @@ const Login = () => {
   };
 
   const handleVerificationError = (errorMessage) => {
-    Alert.alert("Error", errorMessage);
+    Alert.alert("Validation Error", errorMessage);
   };
 
   const handleLogin = async () => {
@@ -73,7 +74,7 @@ const Login = () => {
       await axios
         .post(apiUrl, requestData)
         .then((res) => {
-          console.log("Hello")
+          console.log("Hello");
           setUserData(res.data.user);
           navigation.navigate("VerifyLogin");
         })
@@ -110,10 +111,45 @@ const Login = () => {
           resizeMode="cover"
         >
           <View style={styles.container}>
-            <Header
-              title="Welcome Back"
-              subTitle="Enter your email address and password"
-            />
+            <TouchableOpacity
+              onPress={() => navigation.navigate("SignUP")}
+              style={{
+                width: wp("18%"),
+                justifyContent: "flex-start",
+              }}
+            >
+              <Image
+                style={{
+                  width: wp("18%"),
+                  height: wp("18%"),
+                  resizeMode: "contain",
+                }}
+                source={require("../../assets/BackButton.png")}
+              />
+            </TouchableOpacity>
+            <View style={{ marginHorizontal: 19 }}>
+              <Text
+                style={{
+                  fontFamily: "Roboto-Regular",
+                  fontSize: 24,
+                  fontWeight: "600",
+                  color: "#fff",
+                  marginBottom: 3,
+                }}
+              >
+                Welcome Back
+              </Text>
+              <Text
+                style={{
+                  fontFamily: "Roboto-Regular",
+                  fontSize: 16,
+                  fontWeight: "400",
+                  color: "#B6B6B6",
+                }}
+              >
+                Enter your email address and password
+              </Text>
+            </View>
             <>
               <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
                 <View

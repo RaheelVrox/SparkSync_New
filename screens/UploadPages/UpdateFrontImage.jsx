@@ -116,7 +116,12 @@ const UpdateFrontImage = ({ route, navigation }) => {
       navigation.navigate("UploadBackPage");
     } catch (error) {
       console.error("Error uploading image", error);
-      Alert.alert("Error uploading image. Please try again.");
+      Alert.alert(
+        "Error uploading image",
+        "Please try again",
+        [{ text: "OK" }],
+        { textAlign: "center" }
+      );
     } finally {
       setLoading(false);
     }
