@@ -6,6 +6,7 @@ import {
   ImageBackground,
   Image,
   TouchableOpacity,
+  ScrollView,
   Dimensions,
 } from "react-native";
 import React from "react";
@@ -14,102 +15,115 @@ import {
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
 import { useNavigation } from "@react-navigation/native";
-import { LinearGradient } from "expo-linear-gradient";
 
 const HomePage = () => {
   const navigation = useNavigation();
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#000000" }}>
-      <ImageBackground
-        source={require("../../assets/ImageBackground.png")}
-        style={{
-          right: 0,
-          bottom: 0,
-          flex: 1,
-          left: 0,
-          top: 0,
-        }}
-        resizeMode="cover"
-      >
-        <View style={styles.container}>
-          <Image
-            style={{
-              resizeMode: "contain",
-              width: wp("30%"),
-            }}
-            source={require("../../assets/homelogo.png")}
-          />
-          <Text
-            style={{
-              color: "#fff",
-              position: "absolute",
-              textAlign: "center",
-              margin: 85,
-              paddingLeft: 30,
-              alignSelf: "center",
-              fontFamily: "Roboto-Regular",
-              fontSize: 20,
-              fontWeight: "600",
-              paddingHorizontal: 24,
-            }}
-          >
-            Texas Electricity Areas
-          </Text>
-          <View>
-            <Image
+      <ScrollView style={{ flex: 1 }}>
+        <ImageBackground
+          source={require("../../assets/ImageBackground.png")}
+          style={{
+            right: 0,
+            bottom: 0,
+            flex: 1,
+            left: 0,
+            top: 0,
+            width: Dimensions.get("screen").width,
+            height: Dimensions.get("screen").height,
+          }}
+          resizeMode="cover"
+        >
+          <View style={styles.container}>
+            <View style={{ flexDirection: "row", alignItems: "center" }}>
+              <Image
+                style={{
+                  resizeMode: "contain",
+                  width: "30%",
+                }}
+                source={require("../../assets/homelogo.png")}
+              />
+              <View>
+                <Text
+                  style={{
+                    color: "#fff",
+                    textAlign: "center",
+                    fontFamily: "Roboto-Regular",
+                    fontSize: 20,
+                    fontWeight: "600",
+                  }}
+                >
+                  Texas Electricity
+                </Text>
+                <Text
+                  style={{
+                    color: "#fff",
+                    textAlign: "center",
+                    fontFamily: "Roboto-Regular",
+                    fontSize: 16,
+                    fontWeight: "600",
+                  }}
+                >
+                  Areas
+                </Text>
+              </View>
+            </View>
+            <View
               style={{
-                resizeMode: "contain",
+                flexDirection: "row",
                 alignItems: "center",
+                justifyContent: "center",
                 alignSelf: "center",
-                marginTop: -35,
-                position: "absolute",
-                flex: 1,
-              }}
-              source={require("../../assets/map.png")}
-            />
-          </View>
-          <Image
-            style={{
-              resizeMode: "contain",
-              position: "absolute",
-              alignSelf: "flex-end",
-              margin: wp(35),
-              paddingLeft: wp(28),
-            }}
-            source={require("../../assets/Electricity.png")}
-          />
-          <View style={{ paddingTop: wp(75.5), marginHorizontal: 24 }}>
-            <Text
-              style={{
-                color: "#DEB9A9",
-                textAlign: "center",
-                fontFamily: "Roboto-Regular",
-                fontSize: 16,
-                fontWeight: "600",
-                lineHeight: 24,
               }}
             >
+              <Image
+                style={{
+                  resizeMode: "contain",
+                  alignItems: "center",
+                  alignSelf: "center",
+                  top: -25,
+                }}
+                source={require("../../assets/map.png")}
+              />
+              <Image
+                style={{
+                  resizeMode: "contain",
+                  alignSelf: "flex-start",
+                }}
+                source={require("../../assets/Electricity.png")}
+              />
+            </View>
+            <View style={{ marginHorizontal: 24 }}>
               <Text
                 style={{
-                  color: "#069FF8",
+                  color: "#DEB9A9",
+                  textAlign: "center",
                   fontFamily: "Roboto-Regular",
-                  fontSize: 18,
+                  fontSize: 16,
                   fontWeight: "600",
+                  lineHeight: 24,
+                  marginBottom: 25,
                 }}
               >
-                85%
-              </Text>{" "}
-              of Texans live in a deregulated area and can pick their
-              electricity provider.
-            </Text>
-          </View>
-          <View style={styles.buttonContainer}>
+                <Text
+                  style={{
+                    color: "#069FF8",
+                    fontFamily: "Roboto-Regular",
+                    fontSize: 18,
+                    fontWeight: "600",
+                  }}
+                >
+                  85%
+                </Text>
+                of Texans live in a deregulated area and can pick their
+                electricity provider.
+              </Text>
+            </View>
             <View
               style={{
                 flexDirection: "row",
                 justifyContent: "space-around",
                 alignItems: "center",
-                width: wp(100),
               }}
             >
               <>
@@ -191,31 +205,28 @@ const HomePage = () => {
                 </TouchableOpacity>
               </>
             </View>
-          </View>
-          <View style={styles.divider}></View>
-          <View
-            style={{
-              flexDirection: "row",
-              justifyContent: "space-evenly",
-            }}
-          >
-            <LinearGradient
-              colors={["#04202C", "#04202C"]}
+            <View style={styles.divider}></View>
+            <View
               style={{
-                width: "26.5%",
-                height: "56.5%",
-                marginHorizontal: 10,
-                marginVertical: 2,
-                padding: 3,
-                borderWidth: 1,
-                borderRadius: 20,
-                borderColor: "#607A8C",
-                justifyContent: "center",
-                alignItems: "center",
+                flexDirection: "row",
+                justifyContent: "space-evenly",
               }}
             >
               <TouchableOpacity
                 onPress={() => navigation.navigate("Properties")}
+                style={{
+                  width: "26.5%",
+                  height: "56.5%",
+                  marginHorizontal: 10,
+                  marginVertical: 2,
+                  padding: 3,
+                  borderWidth: 1,
+                  borderRadius: 20,
+                  borderColor: "#607A8C",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  backgroundColor: "#04202C",
+                }}
               >
                 <Image
                   source={require("../../assets/home.png")}
@@ -252,24 +263,21 @@ const HomePage = () => {
                   Properties
                 </Text>
               </TouchableOpacity>
-            </LinearGradient>
-            <LinearGradient
-              colors={["#04202C", "#04202C"]}
-              style={{
-                width: "26.5%",
-                height: "56.5%",
-                borderRadius: 20,
-                // marginHorizontal: 10,
-                marginVertical: 2,
-                padding: 3,
-                borderWidth: 1,
-                borderColor: "#607A8C",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
               <TouchableOpacity
                 onPress={() => navigation.navigate("DeregulatedAreas")}
+                style={{
+                  width: "26.5%",
+                  height: "56.5%",
+                  // marginHorizontal: 10,
+                  marginVertical: 2,
+                  padding: 3,
+                  borderWidth: 1,
+                  borderRadius: 20,
+                  borderColor: "#607A8C",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  backgroundColor: "#04202C",
+                }}
               >
                 <Image
                   source={require("../../assets/location.png")}
@@ -306,24 +314,21 @@ const HomePage = () => {
                   Areas
                 </Text>
               </TouchableOpacity>
-            </LinearGradient>
-            <LinearGradient
-              colors={["#04202C", "#04202C"]}
-              style={{
-                width: "26.5%",
-                height: "56.5%",
-                borderRadius: 20,
-                marginHorizontal: 10,
-                marginVertical: 2,
-                padding: 3,
-                borderWidth: 1,
-                borderColor: "#607A8C",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
               <TouchableOpacity
                 onPress={() => navigation.navigate("AboutTexas")}
+                style={{
+                  width: "26.5%",
+                  height: "56.5%",
+                  marginHorizontal: 10,
+                  marginVertical: 2,
+                  padding: 3,
+                  borderWidth: 1,
+                  borderRadius: 20,
+                  borderColor: "#607A8C",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  backgroundColor: "#04202C",
+                }}
               >
                 <Image
                   source={require("../../assets/electrcity.png")}
@@ -360,10 +365,10 @@ const HomePage = () => {
                   Electricity
                 </Text>
               </TouchableOpacity>
-            </LinearGradient>
+            </View>
           </View>
-        </View>
-      </ImageBackground>
+        </ImageBackground>
+      </ScrollView>
     </SafeAreaView>
   );
 };
@@ -375,18 +380,10 @@ const styles = StyleSheet.create({
     paddingTop: wp(15),
     flex: 1,
   },
-  buttonContainer: {
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
-    width: wp(100),
-    flex: 1,
-    paddingTop: 50,
-  },
   divider: {
     height: 1.8,
     backgroundColor: "#1D2A35",
-    marginTop: 50,
+    marginTop: 20,
     marginBottom: 20,
     marginHorizontal: 24,
   },

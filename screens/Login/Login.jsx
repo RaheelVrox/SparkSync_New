@@ -45,7 +45,7 @@ const Login = () => {
   };
 
   const handleVerificationError = (errorMessage) => {
-    Alert.alert("Error", errorMessage);
+    Alert.alert("Validation Error", errorMessage);
   };
 
   const handleLogin = async () => {
@@ -73,7 +73,7 @@ const Login = () => {
       await axios
         .post(apiUrl, requestData)
         .then((res) => {
-          console.log("Hello")
+          console.log("Hello");
           setUserData(res.data.user);
           navigation.navigate("VerifyLogin");
         })
