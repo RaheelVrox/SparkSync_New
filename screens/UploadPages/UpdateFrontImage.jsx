@@ -7,7 +7,6 @@ import {
   TouchableOpacity,
   ImageBackground,
   ActivityIndicator,
-  Alert,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import {
@@ -116,12 +115,7 @@ const UpdateFrontImage = ({ route, navigation }) => {
       navigation.navigate("UploadBackPage");
     } catch (error) {
       console.error("Error uploading image", error);
-      Alert.alert(
-        "Error uploading image.",
-        "Please try again.",
-        [{ text: "OK" }],
-        { textAlign: "center" }
-      );
+      Alert.alert("Error uploading image. Please try again.");
     } finally {
       setLoading(false);
     }

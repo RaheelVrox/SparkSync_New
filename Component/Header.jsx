@@ -22,8 +22,9 @@ const Header = ({ title, subTitle }) => {
       >
         <Image
           style={{
-            width: 65,
-            resizeMode: "cover",
+            width: wp("18%"),
+            height: wp("18%"),
+            resizeMode: "contain",
           }}
           source={require("../assets/BackButton.png")}
         />

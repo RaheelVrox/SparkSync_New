@@ -16,7 +16,7 @@ import { useNavigation } from "@react-navigation/native";
 const Congratulations = () => {
   const navigation = useNavigation();
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: "#000000" }}>
+    <SafeAreaView style={{ flex: 1 }}>
       <ImageBackground
         source={require("../../assets/ImageBackground.png")}
         style={{ flex: 1, resizeMode: "cover" }}
@@ -62,8 +62,8 @@ const Congratulations = () => {
                 lineHeight: 24,
               }}
             >
-              You have successfully submitted your bill to SparkSync. We are
-              working on it, and we will send you an email shortly.
+              Your bill has been submitted successfully. Our sales
+              representative will contact you soon.
             </Text>
           </View>
           <TouchableOpacity

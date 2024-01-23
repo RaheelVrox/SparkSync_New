@@ -159,14 +159,14 @@ const Profile = () => {
             </TouchableOpacity>
             <TouchableOpacity
               onPress={() =>
-                Linking.openURL("https://sparksync.pro/contact/")
+                Linking.openURL("https://sparksync.pro/privacy-policy/")
               }
             >
               <Text style={styles.text}>Contact</Text>
             </TouchableOpacity>
             <TouchableOpacity
               onPress={() =>
-                Linking.openURL("https://sparksync.pro/terms-condition/")
+                Linking.openURL("https://sparksync.pro/privacy-policy/")
               }
             >
               <Text style={styles.text}>Terms of Services</Text>

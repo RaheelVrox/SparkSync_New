@@ -7,7 +7,6 @@ import {
 import { useNavigation } from "@react-navigation/native";
 
 const OTPHeader = ({ title, subTitle }) => {
-  const navigation = useNavigation();
   return (
     <>
       <TouchableOpacity

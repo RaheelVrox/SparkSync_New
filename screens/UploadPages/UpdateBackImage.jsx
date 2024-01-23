@@ -7,7 +7,6 @@ import {
   TouchableOpacity,
   ImageBackground,
   ActivityIndicator,
-  Alert,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import {
@@ -118,12 +117,6 @@ const UpdateBackImage = ({ route, navigation }) => {
     } catch (error) {
       console.error("Error uploading image", error);
       setUploadMessage("Error uploading image. Please try again.");
-      Alert.alert(
-        "Error uploading image.",
-        "Please try again.",
-        [{ text: "OK" }],
-        { textAlign: "center" }
-      );
     } finally {
       setLoading(false);
     }

@@ -37,7 +37,7 @@ const NewPassword = () => {
     setShowPassword(!showPassword);
   };
   const handleVerificationError = (errorMessage) => {
-    Alert.alert("Validation Error", errorMessage);
+    Alert.alert("Error", errorMessage);
   };
   useEffect(() => {
     const getUserID = async () => {

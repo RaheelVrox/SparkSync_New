@@ -208,7 +208,7 @@ const DeregulatedAreas = () => {
   );
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: "#000000" }}>
+    <SafeAreaView style={{ flex: 1 }}>
       <ImageBackground
         source={require("../../assets/ImageBackground.png")}
         style={{
