@@ -215,8 +215,8 @@ const HomePage = () => {
               <TouchableOpacity
                 onPress={() => navigation.navigate("Properties")}
                 style={{
-                  width: "26.5%",
-                  height: "56.5%",
+                  width: wp("27%"),
+                  height: hp("20%"),
                   marginHorizontal: 10,
                   marginVertical: 2,
                   padding: 3,
@@ -266,8 +266,8 @@ const HomePage = () => {
               <TouchableOpacity
                 onPress={() => navigation.navigate("DeregulatedAreas")}
                 style={{
-                  width: "26.5%",
-                  height: "56.5%",
+                  width: wp("27%"),
+                  height: hp("20%"),
                   // marginHorizontal: 10,
                   marginVertical: 2,
                   padding: 3,
@@ -317,8 +317,8 @@ const HomePage = () => {
               <TouchableOpacity
                 onPress={() => navigation.navigate("AboutTexas")}
                 style={{
-                  width: "26.5%",
-                  height: "56.5%",
+                  width: wp("27%"),
+                  height: hp("20%"),
                   marginHorizontal: 10,
                   marginVertical: 2,
                   padding: 3,
