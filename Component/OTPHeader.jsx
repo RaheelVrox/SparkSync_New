@@ -11,7 +11,6 @@ const OTPHeader = ({ title, subTitle }) => {
   return (
     <>
       <TouchableOpacity
-       onPress={() => navigation.navigate("Login")}
         style={{
           width: wp("18%"),
           justifyContent: "flex-start",

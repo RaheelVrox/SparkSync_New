@@ -104,7 +104,7 @@ const UpdateBackImage = ({ route, navigation }) => {
       formData.append("user_id", user_id);
 
       await axios.post(
-        `${ApiData.url1}/api/v1/propertyimage/update/${frontimage_id} `,
+        `${ApiData.url}/api/v1/propertyimage/update/${frontimage_id} `,
         formData,
         {
           headers: {

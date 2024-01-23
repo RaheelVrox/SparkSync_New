@@ -111,11 +111,6 @@ const StackNavigation = () => {
               name="Congratulations"
               component={Congratulations}
             />
-            <Stack.Screen
-              options={{ headerShown: false }}
-              name="Login"
-              component={Login}
-            />
           </>
         ) : (
           <>
