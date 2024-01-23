@@ -45,7 +45,7 @@ const Login = () => {
   };
 
   const handleVerificationError = (errorMessage) => {
-    Alert.alert("Error", errorMessage);
+    Alert.alert("Validation Error", errorMessage);
   };
 
   const handleLogin = async () => {
