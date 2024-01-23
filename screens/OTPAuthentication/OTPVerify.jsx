@@ -13,7 +13,6 @@ import {
   Keyboard,
   Alert,
 } from "react-native";
-import OTPHeader from "../../Component/OTPHeader.jsx";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
@@ -23,6 +22,7 @@ import { useNavigation } from "@react-navigation/native";
 import axios from "axios";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import ApiData from "../../apiconfig.js";
+import Header from "../../Component/Header";
 
 const OTPVerify = () => {
   const navigation = useNavigation();
@@ -118,7 +118,7 @@ const OTPVerify = () => {
           resizeMode="cover"
         >
           <View style={styles.container}>
-            <OTPHeader
+            <Header
               title="Verify Login"
               subTitle="Enter OTP Code sent to your email. The code will expire in 01:30"
             />

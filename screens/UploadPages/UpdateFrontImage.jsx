@@ -17,6 +17,7 @@ import axios from "axios";
 import * as ImagePicker from "expo-image-picker";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import ApiData from "../../apiconfig";
+import { Alert } from "react-native";
 
 const UpdateFrontImage = ({ route, navigation }) => {
   const [selectedImage, setSelectedImage] = useState(null);

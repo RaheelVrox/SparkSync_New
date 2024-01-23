@@ -34,6 +34,7 @@ const Profile = () => {
   const handleSignOut = async () => {
     try {
       setUserData(null);
+      navigation.navigate("Login");
     } catch (error) {
       console.error("Error logging out:", error.message);
     }
@@ -158,9 +159,7 @@ const Profile = () => {
               <Text style={styles.text}>Reset Password</Text>
             </TouchableOpacity>
             <TouchableOpacity
-              onPress={() =>
-                Linking.openURL("https://sparksync.pro/contact/")
-              }
+              onPress={() => Linking.openURL("https://sparksync.pro/contact/")}
             >
               <Text style={styles.text}>Contact</Text>
             </TouchableOpacity>

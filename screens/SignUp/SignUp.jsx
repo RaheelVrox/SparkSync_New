@@ -89,7 +89,7 @@ const SignUP = () => {
             "User with this email already exist!";
           Alert.alert("Validation Error", errorMessage);
           setIsLoading(false);
-          props.onSignUpSuccess();
+          // props.onSignUpSuccess();
         });
     } catch (error) {
       console.error("Error:", error);

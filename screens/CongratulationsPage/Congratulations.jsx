@@ -67,7 +67,11 @@ const Congratulations = () => {
             </Text>
           </View>
           <TouchableOpacity
-            onPress={() => navigation.navigate("HomePage")}
+            onPress={() =>
+              navigation.navigate("BottomTabsNavigator", {
+                screen: "HomeStack",
+              })
+            }
             style={styles.button}
           >
             <Text
