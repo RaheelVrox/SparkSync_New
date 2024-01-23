@@ -87,8 +87,8 @@ const UpdateBackImage = ({ route, navigation }) => {
     try {
       setUploadMessage("Uploading image. Please wait...");
       const frontimage_id = await AsyncStorage.getItem("frontimage_id");
-      console.log("frontimagid...",frontimage_id)
-      console.log("frontimagid...",typeof frontimage_id)
+      console.log("frontimagid...", frontimage_id);
+      console.log("frontimagid...", typeof frontimage_id);
       const formData = new FormData();
       const filename = selectedImage.uri.substring(
         selectedImage.uri.lastIndexOf("/") + 1
@@ -103,7 +103,7 @@ const UpdateBackImage = ({ route, navigation }) => {
       formData.append("user_id", user_id);
 
       await axios.post(
-        `${ApiData.url1}/api/v1/propertyimage/update/${frontimage_id} `,
+        `${ApiData.url}/api/v1/propertyimage/update/${frontimage_id} `,
         formData,
         {
           headers: {

@@ -39,7 +39,7 @@ const Properties = ({ route }) => {
         const userDataFromStorage = JSON.parse(storedUserData) || { id: null };
         if (userDataFromStorage !== null) {
           setuser_id(userDataFromStorage?.id);
-          const apiUrl = `${ApiData.url1}/api/v1/propertyimage/${userDataFromStorage?.id}`;
+          const apiUrl = `${ApiData.url}/api/v1/propertyimage/${userDataFromStorage?.id}`;
           console.log("API URL...:", apiUrl);
           const response = await axios.get(apiUrl);
           console.log("API Response Image...:", response.data);
@@ -142,13 +142,13 @@ const Properties = ({ route }) => {
                               <Image
                                 style={styles.image}
                                 source={{
-                                  uri: `${ApiData.url1}/property_image/${el?.frontimage}`,
+                                  uri: `${ApiData.url}/property_image/${el?.frontimage}`,
                                 }}
                               />
                               <Image
                                 style={styles.image}
                                 source={{
-                                  uri: `${ApiData.url1}/property_image/${el?.back_image}`,
+                                  uri: `${ApiData.url}/property_image/${el?.back_image}`,
                                 }}
                               />
                             </View>
