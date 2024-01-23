@@ -73,7 +73,7 @@ const Login = () => {
       await axios
         .post(apiUrl, requestData)
         .then((res) => {
-          console.log("Hello")
+          console.log("Hello");
           setUserData(res.data.user);
           navigation.navigate("VerifyLogin");
         })

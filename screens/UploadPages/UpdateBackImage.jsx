@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   ImageBackground,
   ActivityIndicator,
+  Alert,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import {
@@ -87,8 +88,8 @@ const UpdateBackImage = ({ route, navigation }) => {
     try {
       setUploadMessage("Uploading image. Please wait...");
       const frontimage_id = await AsyncStorage.getItem("frontimage_id");
-      console.log("frontimagid...",frontimage_id)
-      console.log("frontimagid...",typeof frontimage_id)
+      console.log("frontimagid...", frontimage_id);
+      console.log("frontimagid...", typeof frontimage_id);
       const formData = new FormData();
       const filename = selectedImage.uri.substring(
         selectedImage.uri.lastIndexOf("/") + 1
@@ -117,6 +118,12 @@ const UpdateBackImage = ({ route, navigation }) => {
     } catch (error) {
       console.error("Error uploading image", error);
       setUploadMessage("Error uploading image. Please try again.");
+      Alert.alert(
+        "Error uploading image.",
+        "Please try again.",
+        [{ text: "OK" }],
+        { textAlign: "center" }
+      );
     } finally {
       setLoading(false);
     }
