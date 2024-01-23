@@ -216,6 +216,19 @@ const HomePage = () => {
             >
               <TouchableOpacity
                 onPress={() => navigation.navigate("Properties")}
+                style={{
+                  width: wp("27%"),
+                  height: hp("20%"),
+                  marginHorizontal: 10,
+                  marginVertical: 2,
+                  padding: 3,
+                  borderWidth: 1,
+                  borderRadius: 20,
+                  borderColor: "#607A8C",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  backgroundColor: "#04202C",
+                }}
               >
                 <Image
                   source={require("../../assets/home.png")}
@@ -270,6 +283,19 @@ const HomePage = () => {
             >
               <TouchableOpacity
                 onPress={() => navigation.navigate("DeregulatedAreas")}
+                style={{
+                  width: wp("27%"),
+                  height: hp("20%"),
+                  // marginHorizontal: 10,
+                  marginVertical: 2,
+                  padding: 3,
+                  borderWidth: 1,
+                  borderRadius: 20,
+                  borderColor: "#607A8C",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  backgroundColor: "#04202C",
+                }}
               >
                 <Image
                   source={require("../../assets/location.png")}
@@ -324,6 +350,19 @@ const HomePage = () => {
             >
               <TouchableOpacity
                 onPress={() => navigation.navigate("AboutTexas")}
+                style={{
+                  width: wp("27%"),
+                  height: hp("20%"),
+                  marginHorizontal: 10,
+                  marginVertical: 2,
+                  padding: 3,
+                  borderWidth: 1,
+                  borderRadius: 20,
+                  borderColor: "#607A8C",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  backgroundColor: "#04202C",
+                }}
               >
                 <Image
                   source={require("../../assets/electrcity.png")}
