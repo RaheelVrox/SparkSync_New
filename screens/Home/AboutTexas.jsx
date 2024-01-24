@@ -20,7 +20,7 @@ const AboutTexas = () => {
   const navigation = useNavigation();
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: "#000000" }}>
+    <SafeAreaView style={{ flex: 1 }}>
       <ImageBackground
         source={require("../../assets/ImageBackground.png")}
         style={{
@@ -33,14 +33,12 @@ const AboutTexas = () => {
         resizeMode="cover"
       >
         <View style={styles.container}>
-          <TouchableOpacity
-            onPress={() => navigation.navigate("HomePage")}
-            style={{ width: wp("18%"), justifyContent: "flex-start" }}
-          >
+          <TouchableOpacity onPress={() => navigation.navigate("HomePage")}>
             <Image
               style={{
-                width: 65,
-                resizeMode: "cover",
+                width: wp("18%"),
+                height: wp("18%"),
+                resizeMode: "contain",
               }}
               source={require("../../assets/BackButton.png")}
             />

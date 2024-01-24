@@ -18,7 +18,7 @@ import { useNavigation } from "@react-navigation/native";
 const Frontpage = () => {
   const navigation = useNavigation();
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: "#000000" }}>
       <ImageBackground
         source={require("../../assets/ImageBackground.png")}
         style={{ flex: 1, resizeMode: "cover" }}
@@ -31,7 +31,7 @@ const Frontpage = () => {
         </View>
         <View
           style={{
-            marginTop: 35,
+            marginTop: wp(25),
             marginHorizontal: 24,
             flex: 1,
           }}
@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
   image: {
     width: wp("50%"),
     height: wp("60%"),
-    top: 80,
+    top: 90,
     resizeMode: "contain",
   },
   startbutton: {

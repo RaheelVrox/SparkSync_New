@@ -30,31 +30,40 @@ const FAQList = () => {
     {
       question: "What is Spark Sync?",
       answer:
-        "Spark Sync is an electricity provider finding app that helps you to find the best plan for your needs.",
+        "SparkSync is an electricity provider finding app that helps Texans navigate the state’s deregulated electricity market. Through its user-friendly features and comprehensive information, SparkSync enables consumers to make educated choices and find plans tailored specifically to their individual needs.",
     },
     {
       question: "How does Spark Sync work?",
-      answer: "Your answer for how Spark Sync works.",
+      answer:
+        "SparkSync.pro works by first collecting information about your location, energy consumption, preferences, contract lengths, and renewable energy options. SparkSync then uses this information to compare electricity plans from different providers and help you select one that best meets your needs. Furthermore, customer reviews for each plan provide additional insight to make an informed decision.",
     },
+
+    {
+      question:
+        "How Can Sparksync Help Me Find The Right Electricity Provider?",
+      answer:
+        "SparkSync.pro makes finding an electricity provider easy by providing an accessible platform with comprehensive information on available providers and their plans – including prices, contract lengths, renewable energy options and customer reviews.",
+    },
+
     {
       question: "Is Spark Sync free to use?",
-      answer: "Your answer for how Spark Sync works.",
+      answer:
+        "Yes, SparkSync.pro is a free service for users. There are no charges or fees to access the platform, compare plans, or switch electricity providers.",
     },
     {
       question: "How do I switch electricity providers with Spark Sync?",
-      answer: "Your answer for how Spark Sync works.",
+      answer:
+        "SparkSync.pro makes finding an electricity provider easy by providing an accessible platform with comprehensive information on available providers and their plans – including prices, contract lengths, renewable energy options and customer reviews.",
     },
     {
-      question: "Is Spark Sync free to use?",
-      answer: "Your answer for how Spark Sync works.",
-    },
-    {
-      question: "Is Spark Sync free to use?",
-      answer: "Your answer for how Spark Sync works.",
+      question: "Is Sparksync Available Throughout Texas?",
+      answer:
+        "Yes, SparkSync is available state-wide in Texas. It covers various regions and cities, allowing users from across the state to benefit from its services.",
     },
     {
       question: "Can I trust the information provided by Spark Sync?",
-      answer: "Your answer for how Spark Sync works.",
+      answer:
+        "Yes, SparkSync is available state-wide in Texas. It covers various regions and cities, allowing users from across the state to benefit from its services.",
     },
   ];
 
@@ -85,8 +94,8 @@ const styles = StyleSheet.create({
     marginHorizontal: 24,
   },
   questionText: {
-    fontSize: 18,
-    fontWeight: "bold",
+    fontSize: 17,
+    fontWeight: "600",
     fontFamily: "Roboto-Regular",
     color: "#fff",
   },

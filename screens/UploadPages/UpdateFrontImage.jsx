@@ -7,7 +7,6 @@ import {
   TouchableOpacity,
   ImageBackground,
   ActivityIndicator,
-  Alert,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import {
@@ -18,6 +17,7 @@ import axios from "axios";
 import * as ImagePicker from "expo-image-picker";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import ApiData from "../../apiconfig";
+import { Alert } from "react-native";
 
 const UpdateFrontImage = ({ route, navigation }) => {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -117,8 +117,8 @@ const UpdateFrontImage = ({ route, navigation }) => {
     } catch (error) {
       console.error("Error uploading image", error);
       Alert.alert(
-        "Error uploading image.",
-        "Please try again.",
+        "Error uploading image",
+        "Please try again",
         [{ text: "OK" }],
         { textAlign: "center" }
       );
@@ -144,9 +144,9 @@ const UpdateFrontImage = ({ route, navigation }) => {
           {selectedImage ? (
             <Image
               style={{
-                width: wp("100%"),
-                height: wp("100%"),
-                resizeMode: "contain",
+                width: "90%",
+                height: "60%",
+                resizeMode: "cover",
                 alignSelf: "center",
               }}
               source={{ uri: selectedImage.uri }}
@@ -155,9 +155,9 @@ const UpdateFrontImage = ({ route, navigation }) => {
             <TouchableOpacity onPress={pickImage}>
               <Image
                 style={{
-                  width: wp("100%"),
-                  height: wp("100%"),
-                  resizeMode: "contain",
+                  width: "90%",
+                  height: "60%",
+                  resizeMode: "cover",
                   alignSelf: "center",
                 }}
                 source={require("../../assets/frontpage.png")}

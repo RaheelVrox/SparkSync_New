@@ -89,7 +89,7 @@ const SignUP = () => {
             "User with this email already exist!";
           Alert.alert("Validation Error", errorMessage);
           setIsLoading(false);
-          props.onSignUpSuccess();
+          // props.onSignUpSuccess();
         });
     } catch (error) {
       console.error("Error:", error);
@@ -107,8 +107,6 @@ const SignUP = () => {
           flex: 1,
           left: 0,
           top: 0,
-          width: Dimensions.get("screen").width,
-          height: Dimensions.get("screen").height,
         }}
         resizeMode="cover"
       >
@@ -130,7 +128,7 @@ const SignUP = () => {
                     <>
                       <View
                         style={{
-                          paddingTop: wp(17),
+                          paddingTop: wp(15),
                           justifyContent: "center",
                           alignItems: "center",
                         }}
@@ -329,7 +327,7 @@ const SignUP = () => {
                         style={{
                           justifyContent: "center",
                           alignItems: "center",
-                          paddingTop: wp(5),
+                          paddingTop: wp(2),
                           flexDirection: "row",
                           flex: 1,
                         }}
@@ -387,7 +385,7 @@ const styles = StyleSheet.create({
     borderWidth: 1.5,
     borderColor: "#607A8C",
     elevation: 5,
-    marginBottom: wp(4),
+    marginBottom: 10,
     paddingLeft: wp(5),
     shadowColor: "#4A5F71",
     elevation: 10,
@@ -396,7 +394,7 @@ const styles = StyleSheet.create({
     width: wp("85%"),
     height: hp("6.5%"),
     borderRadius: 50,
-    marginTop: 35,
+    marginTop: 30,
     alignSelf: "center",
   },
 });

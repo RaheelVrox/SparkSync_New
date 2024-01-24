@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useState } from "react";
+import React, { useLayoutEffect, useState } from "react";
 import { useUserData } from "../UserDataContext";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import BottomTabsNavigator from "../navigation/BottomTabsNavigator";
@@ -110,6 +110,16 @@ const StackNavigation = () => {
               options={{ headerShown: false }}
               name="Congratulations"
               component={Congratulations}
+            />
+            <Stack.Screen
+              options={{ headerShown: false }}
+              name="SignUP"
+              component={SignUP}
+            />
+            <Stack.Screen
+              options={{ headerShown: false }}
+              name="Login"
+              component={Login}
             />
           </>
         ) : (

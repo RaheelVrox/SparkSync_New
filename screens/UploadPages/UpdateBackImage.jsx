@@ -119,8 +119,8 @@ const UpdateBackImage = ({ route, navigation }) => {
       console.error("Error uploading image", error);
       setUploadMessage("Error uploading image. Please try again.");
       Alert.alert(
-        "Error uploading image.",
-        "Please try again.",
+        "Error uploading image",
+        "Please try again",
         [{ text: "OK" }],
         { textAlign: "center" }
       );
@@ -147,8 +147,8 @@ const UpdateBackImage = ({ route, navigation }) => {
           {selectedImage ? (
             <Image
               style={{
-                width: wp("100%"),
-                height: wp("100%"),
+                width: "90%",
+                height: "60%",
                 resizeMode: "contain",
                 alignSelf: "center",
               }}
@@ -158,8 +158,8 @@ const UpdateBackImage = ({ route, navigation }) => {
             <TouchableOpacity onPress={pickImage}>
               <Image
                 style={{
-                  width: wp("100%"),
-                  height: wp("100%"),
+                  width: "90%",
+                  height: "60%",
                   resizeMode: "contain",
                   alignSelf: "center",
                 }}
