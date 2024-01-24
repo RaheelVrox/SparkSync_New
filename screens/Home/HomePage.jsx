@@ -8,8 +8,9 @@ import {
   TouchableOpacity,
   ScrollView,
   Dimensions,
+  BackHandler,
 } from "react-native";
-import React from "react";
+import React, { useEffect } from "react";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
@@ -18,6 +19,18 @@ import { useNavigation } from "@react-navigation/native";
 
 const HomePage = () => {
   const navigation = useNavigation();
+  useEffect(() => {
+    const backAction = () => {
+      // Handle the back button press here
+      return true; // Prevent default behavior (exit the app)
+    };
+    const backHandler = BackHandler.addEventListener(
+      "hardwareBackPress",
+      backAction
+    );
+    return () => backHandler.remove(); // Cleanup the event listener on component unmount
+  }, [navigation]);
+
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#000000" }}>
       <ScrollView style={{ flex: 1 }}>

@@ -107,8 +107,6 @@ const SignUP = () => {
           flex: 1,
           left: 0,
           top: 0,
-          width: Dimensions.get("screen").width,
-          height: Dimensions.get("screen").height,
         }}
         resizeMode="cover"
       >
@@ -130,7 +128,7 @@ const SignUP = () => {
                     <>
                       <View
                         style={{
-                          paddingTop: wp(10),
+                          paddingTop: wp(15),
                           justifyContent: "center",
                           alignItems: "center",
                         }}
@@ -374,7 +372,7 @@ const SignUP = () => {
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: wp(8),
+    paddingTop: wp(15),
     flex: 1,
   },
   inputField: {
@@ -387,7 +385,7 @@ const styles = StyleSheet.create({
     borderWidth: 1.5,
     borderColor: "#607A8C",
     elevation: 5,
-    marginBottom: wp(4),
+    marginBottom: 10,
     paddingLeft: wp(5),
     shadowColor: "#4A5F71",
     elevation: 10,

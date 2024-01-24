@@ -2,7 +2,7 @@
   "expo": {
     "name": "Spark_Sync",
     "slug": "spark-sync",
-    "version": "2.0.1",
+    "version": "2.0.5",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -25,7 +25,7 @@
         "NSPhotoLibraryUsageDescription": "We need access to your photo library"
       },
       "bundleIdentifier": "com.sparksync",
-      "buildNumber": "12"
+      "buildNumber": "14"
     },
     "android": {
       "adaptiveIcon": {
@@ -36,7 +36,7 @@
         "CAMERA_ROLL"
       ],
       "package": "com.sparksync",
-      "versionCode": 9
+      "versionCode": 11
     },
     "web": {
       "favicon": "./assets/icon.png"

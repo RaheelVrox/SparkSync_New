@@ -12,7 +12,6 @@ import {
   TouchableWithoutFeedback,
   Keyboard,
   Alert,
-  Image,
 } from "react-native";
 import {
   widthPercentageToDP as wp,
@@ -122,45 +121,10 @@ const VerifyLogin = () => {
           resizeMode="cover"
         >
           <View style={styles.container}>
-            <TouchableOpacity
-              onPress={() => navigation.navigate("Login")}
-              style={{
-                width: wp("18%"),
-                justifyContent: "flex-start",
-              }}
-            >
-              <Image
-                style={{
-                  width: wp("18%"),
-                  height: wp("18%"),
-                  resizeMode: "contain",
-                }}
-                source={require("../../assets/BackButton.png")}
-              />
-            </TouchableOpacity>
-            <View style={{ marginHorizontal: 19 }}>
-              <Text
-                style={{
-                  fontFamily: "Roboto-Regular",
-                  fontSize: 24,
-                  fontWeight: "600",
-                  color: "#fff",
-                  marginBottom: 3,
-                }}
-              >
-                Verify Login
-              </Text>
-              <Text
-                style={{
-                  fontFamily: "Roboto-Regular",
-                  fontSize: 16,
-                  fontWeight: "400",
-                  color: "#B6B6B6",
-                }}
-              >
-                Enter OTP Code sent to your email. The code will expire in 01:30
-              </Text>
-            </View>
+            <Header
+              title="Verify Login"
+              subTitle="Enter OTP Code sent to your email. The code will expire in 01:30"
+            />
             <View style={styles.otpContainer}>
               {otp.map((digit, index) => (
                 <TextInput
