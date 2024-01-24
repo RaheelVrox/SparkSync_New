@@ -16,7 +16,7 @@ import { useNavigation } from "@react-navigation/native";
 const Congratulations = () => {
   const navigation = useNavigation();
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: "#000000" }}>
       <ImageBackground
         source={require("../../assets/ImageBackground.png")}
         style={{ flex: 1, resizeMode: "cover" }}
