@@ -7,6 +7,7 @@ import {
   ScrollView,
   ActivityIndicator,
   ImageBackground,
+  SafeAreaView,
 } from "react-native";
 import {
   widthPercentageToDP as wp,
@@ -63,119 +64,123 @@ const Properties = ({ route }) => {
   }, [navigation]);
 
   return (
-    <ImageBackground
-      source={require("../../assets/ImageBackground.png")}
-      style={{
-        right: 0,
-        bottom: 0,
-        flex: 1,
-        left: 0,
-        top: 0,
-      }}
-      resizeMode="cover"
-    >
-      <View style={styles.container}>
-        <Header
-          title="Your Properties"
-          subTitle="You can manage your electricity accounts for different properties"
-        />
-        {isLoading ? (
-          <View style={styles.loader}>
-            <ActivityIndicator size={75} color="#069FF8" />
-          </View>
-        ) : (
-          <>
-            <ScrollView showsVerticalScrollIndicator={false}>
-              <View
-                style={{
-                  marginHorizontal: 25,
-                  paddingTop: wp(5),
-                  // marginBottom: 30,
-                }}
-              >
-                <Text
+    <SafeAreaView style={{ flex: 1, backgroundColor: "#000000" }}>
+      <ImageBackground
+        source={require("../../assets/ImageBackground.png")}
+        style={{
+          right: 0,
+          bottom: 0,
+          flex: 1,
+          left: 0,
+          top: 0,
+        }}
+        resizeMode="cover"
+      >
+        <View style={styles.container}>
+          <Header
+            title="Your Properties"
+            subTitle="You can manage your electricity accounts for different properties"
+          />
+          {isLoading ? (
+            <View style={styles.loader}>
+              <ActivityIndicator size={75} color="#069FF8" />
+            </View>
+          ) : (
+            <>
+              <ScrollView showsVerticalScrollIndicator={false}>
+                <View
                   style={{
-                    fontFamily: "Roboto-Regular",
-                    fontSize: 20,
-                    fontWeight: "600",
-                    color: "#FFFFFF",
+                    marginHorizontal: 25,
+                    paddingTop: wp(5),
+                    // marginBottom: 30,
                   }}
                 >
-                  {/* Your properties */}
-                </Text>
-              </View>
-              {propertiesData?.length !== 0 ? (
-                <>
-                  {propertiesData &&
-                    propertiesData?.map((el, idx) => {
-                      return (
-                        <View style={styles.propertieontainer} key={idx}>
-                          <View style={{ flexDirection: "row" }}>
-                            <View
-                              style={{
-                                justifyContent: "center",
-                                marginHorizontal: wp(2),
-                              }}
-                            >
-                              <Text
-                                style={{
-                                  justifyContent: "center",
-                                  fontFamily: "Roboto-Regular",
-                                  fontSize: wp(4),
-                                  fontWeight: "600",
-                                  color: "#fff",
-                                }}
-                              >
-                                Property{idx + 1}:
-                              </Text>
-                            </View>
-                            <View
-                              style={{
-                                width: "60%",
-                                flexDirection: "row",
-                                alignItems: "center",
-                                justifyContent: "space-evenly",
-                                marginLeft: wp(6),
-                                gap: wp(1),
-                              }}
-                            >
-                              <Image
-                                style={styles.image}
-                                source={{
-                                  uri: `${ApiData.url}/property_image/${el?.frontimage}`,
-                                }}
-                              />
-                              <Image
-                                style={styles.image}
-                                source={{
-                                  uri: `${ApiData.url}/property_image/${el?.back_image}`,
-                                }}
-                              />
-                            </View>
-                          </View>
-                        </View>
-                      );
-                    })}
-                </>
-              ) : (
-                <View style={{ justifyContent: "center", alignSelf: "center" }}>
                   <Text
                     style={{
                       fontFamily: "Roboto-Regular",
-                      fontSize: 14,
-                      fontWeight: "400",
+                      fontSize: 20,
+                      fontWeight: "600",
                       color: "#FFFFFF",
                     }}
                   >
-                    No Properties added yet!
+                    {/* Your properties */}
                   </Text>
                 </View>
-              )}
-            </ScrollView>
-          </>
-        )}
-      </View>
-    </ImageBackground>
+                {propertiesData?.length !== 0 ? (
+                  <>
+                    {propertiesData &&
+                      propertiesData?.map((el, idx) => {
+                        return (
+                          <View style={styles.propertieontainer} key={idx}>
+                            <View style={{ flexDirection: "row" }}>
+                              <View
+                                style={{
+                                  justifyContent: "center",
+                                  marginHorizontal: wp(2),
+                                }}
+                              >
+                                <Text
+                                  style={{
+                                    justifyContent: "center",
+                                    fontFamily: "Roboto-Regular",
+                                    fontSize: wp(4),
+                                    fontWeight: "600",
+                                    color: "#fff",
+                                  }}
+                                >
+                                  Property{idx + 1}:
+                                </Text>
+                              </View>
+                              <View
+                                style={{
+                                  width: "60%",
+                                  flexDirection: "row",
+                                  alignItems: "center",
+                                  justifyContent: "space-evenly",
+                                  marginLeft: wp(6),
+                                  gap: wp(1),
+                                }}
+                              >
+                                <Image
+                                  style={styles.image}
+                                  source={{
+                                    uri: `${ApiData.url}/property_image/${el?.frontimage}`,
+                                  }}
+                                />
+                                <Image
+                                  style={styles.image}
+                                  source={{
+                                    uri: `${ApiData.url}/property_image/${el?.back_image}`,
+                                  }}
+                                />
+                              </View>
+                            </View>
+                          </View>
+                        );
+                      })}
+                  </>
+                ) : (
+                  <View
+                    style={{ justifyContent: "center", alignSelf: "center" }}
+                  >
+                    <Text
+                      style={{
+                        fontFamily: "Roboto-Regular",
+                        fontSize: 14,
+                        fontWeight: "400",
+                        color: "#FFFFFF",
+                      }}
+                    >
+                      No Properties added yet!
+                    </Text>
+                  </View>
+                )}
+              </ScrollView>
+            </>
+          )}
+        </View>
+      </ImageBackground>
+    </SafeAreaView>
   );
 };
 
@@ -203,10 +208,9 @@ const styles = StyleSheet.create({
   },
   image: {
     resizeMode: "contain",
-    width: wp("34%"),
+    width: wp("35%"),
     height: hp("10%"),
     alignItems: "center",
-    borderWidth: 1,
     borderColor: "#607A8C",
     borderRadius: 5,
   },

@@ -144,9 +144,9 @@ const UpdateFrontImage = ({ route, navigation }) => {
           {selectedImage ? (
             <Image
               style={{
-                width: wp("100%"),
-                height: wp("100%"),
-                resizeMode: "contain",
+                width: "90%",
+                height: "60%",
+                resizeMode: "cover",
                 alignSelf: "center",
               }}
               source={{ uri: selectedImage.uri }}
@@ -155,9 +155,9 @@ const UpdateFrontImage = ({ route, navigation }) => {
             <TouchableOpacity onPress={pickImage}>
               <Image
                 style={{
-                  width: wp("100%"),
-                  height: wp("100%"),
-                  resizeMode: "contain",
+                  width: "90%",
+                  height: "60%",
+                  resizeMode: "cover",
                   alignSelf: "center",
                 }}
                 source={require("../../assets/frontpage.png")}

@@ -31,7 +31,7 @@ const Frontpage = () => {
         </View>
         <View
           style={{
-            marginTop: 35,
+            marginTop: wp(25),
             marginHorizontal: 24,
             flex: 1,
           }}
@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
   image: {
     width: wp("50%"),
     height: wp("60%"),
-    top: 80,
+    top: 90,
     resizeMode: "contain",
   },
   startbutton: {

@@ -85,7 +85,7 @@ const ForgotPassword = () => {
                 </Text>
               </View>
             </TouchableOpacity>
-            <TouchableOpacity
+            {/* <TouchableOpacity
               onPress={() => {
                 setSelectedOption("phone-call");
               }}
@@ -120,7 +120,7 @@ const ForgotPassword = () => {
                   Send to your phone number
                 </Text>
               </View>
-            </TouchableOpacity>
+            </TouchableOpacity> */}
           </View>
           <LinearGradient colors={["#6FCAFF", "#0081CC"]} style={styles.button}>
             <TouchableOpacity

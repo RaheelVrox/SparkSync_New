@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
   ImageBackground,
   ActivityIndicator,
-  Alert
+  Alert,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import {
@@ -147,8 +147,8 @@ const UpdateBackImage = ({ route, navigation }) => {
           {selectedImage ? (
             <Image
               style={{
-                width: wp("100%"),
-                height: wp("100%"),
+                width: "90%",
+                height: "60%",
                 resizeMode: "contain",
                 alignSelf: "center",
               }}
@@ -158,8 +158,8 @@ const UpdateBackImage = ({ route, navigation }) => {
             <TouchableOpacity onPress={pickImage}>
               <Image
                 style={{
-                  width: wp("100%"),
-                  height: wp("100%"),
+                  width: "90%",
+                  height: "60%",
                   resizeMode: "contain",
                   alignSelf: "center",
                 }}

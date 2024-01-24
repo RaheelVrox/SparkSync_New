@@ -130,7 +130,7 @@ const SignUP = () => {
                     <>
                       <View
                         style={{
-                          paddingTop: wp(17),
+                          paddingTop: wp(10),
                           justifyContent: "center",
                           alignItems: "center",
                         }}
@@ -329,7 +329,7 @@ const SignUP = () => {
                         style={{
                           justifyContent: "center",
                           alignItems: "center",
-                          paddingTop: wp(5),
+                          paddingTop: wp(2),
                           flexDirection: "row",
                           flex: 1,
                         }}
@@ -374,7 +374,7 @@ const SignUP = () => {
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: wp(15),
+    paddingTop: wp(8),
     flex: 1,
   },
   inputField: {
@@ -396,7 +396,7 @@ const styles = StyleSheet.create({
     width: wp("85%"),
     height: hp("6.5%"),
     borderRadius: 50,
-    marginTop: 35,
+    marginTop: 30,
     alignSelf: "center",
   },
 });

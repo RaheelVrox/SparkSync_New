@@ -4,7 +4,7 @@ import {
   View,
   SafeAreaView,
   ImageBackground,
-  Dimensions,
+  ScrollView,
   FlatList,
 } from "react-native";
 import React from "react";
@@ -184,6 +184,7 @@ const DeregulatedAreas = () => {
     "Hillsboro",
     "Hitchcock",
     "Houston",
+    "Haskell",
   ];
 
   const tripletsData = [];
@@ -208,7 +209,7 @@ const DeregulatedAreas = () => {
   );
 
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: "#000000" }}>
       <ImageBackground
         source={require("../../assets/ImageBackground.png")}
         style={{
@@ -225,62 +226,63 @@ const DeregulatedAreas = () => {
             title="Deregulated Areas"
             subTitle="Deregulated areas in Texas let customers pick their electricity provider from many REPs"
           />
-          <View style={styles.areacontainer}>
-            <Text style={styles.heading}>
-              A-Z List of Deregulated Cities in Texas
-            </Text>
-            <Text style={styles.text}>
-              Some of the major cities that are deregulated in Texas are
-              Houston, Dallas, Fort Worth, Corpus Christi, Galveston, Waco,
-              Lubbock, McAllen, and Abilene. There are over 400 cities and towns
-              in Texas that have the power to choose their energy provider. You
-              can find a complete list of deregulated cities in Texas
-            </Text>
-            <View style={styles.divider}></View>
-            <FlatList
-              data={tripletsData}
-              keyExtractor={(item, index) => index.toString()}
-              renderItem={({ item }) => (
-                <View style={styles.cityTripletContainer}>
-                  <View
-                    style={{
-                      justifyContent: "center",
-                      flexDirection: "row",
-                      alignItems: "center",
-                      width: 100,
-                    }}
-                  >
-                    <Entypo name="dot-single" size={24} color="white" />
-                    <Text style={styles.cityText}>{item.city1}</Text>
+          <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+            <View style={styles.areacontainer}>
+              <Text style={styles.heading}>
+                A-Z List of Deregulated Cities in Texas
+              </Text>
+              <Text style={styles.text}>
+                Some of the major cities that are deregulated in Texas are
+                Houston, Dallas, Fort Worth, Corpus Christi, Galveston, Waco,
+                Lubbock, McAllen, and Abilene. There are over 400 cities and
+                towns in Texas that have the power to choose their energy
+                provider. You can find a complete list of deregulated cities in
+                Texas
+              </Text>
+              <View style={styles.divider}></View>
+              <FlatList
+                data={tripletsData}
+                keyExtractor={(item, index) => index.toString()}
+                renderItem={({ item }) => (
+                  <View style={styles.cityTripletContainer}>
+                    <View
+                      style={{
+                        justifyContent: "center",
+                        flexDirection: "row",
+                        alignItems: "center",
+                        width: 100,
+                      }}
+                    >
+                      <Entypo name="dot-single" size={24} color="white" />
+                      <Text style={styles.cityText}>{item.city1}</Text>
+                    </View>
+                    <View
+                      style={{
+                        justifyContent: "center",
+                        flexDirection: "row",
+                        alignItems: "center",
+                        width: 100,
+                      }}
+                    >
+                      <Entypo name="dot-single" size={24} color="white" />
+                      <Text style={styles.cityText}>{item.city2}</Text>
+                    </View>
+                    <View
+                      style={{
+                        justifyContent: "center",
+                        flexDirection: "row",
+                        alignItems: "center",
+                        width: 100,
+                      }}
+                    >
+                      <Entypo name="dot-single" size={24} color="white" />
+                      <Text style={styles.cityText}>{item.city3}</Text>
+                    </View>
                   </View>
-                  <View
-                    style={{
-                      justifyContent: "center",
-                      flexDirection: "row",
-                      alignItems: "center",
-
-                      width: 100,
-                    }}
-                  >
-                    <Entypo name="dot-single" size={24} color="white" />
-                    <Text style={styles.cityText}>{item.city2}</Text>
-                  </View>
-                  <View
-                    style={{
-                      justifyContent: "center",
-                      flexDirection: "row",
-                      alignItems: "center",
-                      width: 100,
-                    }}
-                  >
-                    <Entypo name="dot-single" size={24} color="white" />
-                    <Text style={styles.cityText}>{item.city3}</Text>
-                  </View>
-                </View>
-              )}
-            />
-          </View>
-          <View></View>
+                )}
+              />
+            </View>
+          </ScrollView>
         </View>
       </ImageBackground>
     </SafeAreaView>
@@ -300,7 +302,8 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     padding: 20,
     marginHorizontal: 25,
-    marginTop: 50,
+    marginTop: 40,
+    margin: 25,
   },
   heading: {
     fontSize: 18,
@@ -315,7 +318,7 @@ const styles = StyleSheet.create({
     fontFamily: "Roboto-Regular",
     fontSize: 16,
     fontWeight: "500",
-    lineHeight: 24,
+    // lineHeight: 24,
   },
   divider: {
     height: 1.5,
