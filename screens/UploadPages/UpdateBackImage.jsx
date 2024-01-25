@@ -191,7 +191,7 @@ const UpdateBackImage = ({ route, navigation }) => {
                 justifyContent: "space-around",
                 alignItems: "center",
                 width: wp(100),
-                marginBottom: 25,
+                marginBottom: 30,
               }}
             >
               {!loading ? (
@@ -271,6 +271,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     width: wp(100),
     position: "absolute",
-    bottom: 25,
+    bottom: 35,
   },
 });

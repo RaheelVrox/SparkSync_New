@@ -5,9 +5,7 @@ import {
   View,
   SafeAreaView,
   ImageBackground,
-  Dimensions,
   ScrollView,
-  TouchableOpacity,
 } from "react-native";
 import {
   widthPercentageToDP as wp,
@@ -24,6 +22,7 @@ const EnergySavingTips = () => {
       <ImageBackground
         source={require("../../assets/ImageBackground.png")}
         style={{
+          position: "absolute",
           right: 0,
           bottom: 0,
           flex: 1,
@@ -32,8 +31,8 @@ const EnergySavingTips = () => {
         }}
         resizeMode="cover"
       >
-        <View style={styles.container}>
-          <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+        <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+          <View style={styles.container}>
             <Header
               title="Energy Saving Tips"
               subTitle="Some of the ways that Texans can save energy "
@@ -54,16 +53,10 @@ const EnergySavingTips = () => {
                   "Drain your hot water tank regularly to remove sediment and prevent clogging. This will make your water heater more efficient and last longer.",
                 ]}
               />
-              <SavingTips
-                heading="Water Heaters"
-                tips={[
-                  "Fix any leaks in your faucets and pipes. Warm-water leaks waste a lot of energy and money.",
-                  "Drain your hot water tank regularly to remove sediment and prevent clogging. This will make your water heater more efficient and last longer.",
-                ]}
-              />
+              
             </View>
-          </ScrollView>
-        </View>
+          </View>
+        </ScrollView>
       </ImageBackground>
     </SafeAreaView>
   );
@@ -73,7 +66,7 @@ export default EnergySavingTips;
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: wp(14),
+    paddingTop: wp(13),
     flex: 1,
   },
 });

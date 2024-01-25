@@ -21,7 +21,15 @@ const Frontpage = () => {
     <SafeAreaView style={{ flex: 1, backgroundColor: "#000000" }}>
       <ImageBackground
         source={require("../../assets/ImageBackground.png")}
-        style={{ flex: 1, resizeMode: "cover" }}
+        style={{
+          position: "absolute",
+          right: 0,
+          bottom: 0,
+          flex: 1,
+          left: 0,
+          top: 0,
+        }}
+        resizeMode="cover"
       >
         <View style={styles.container}>
           <Image
@@ -41,10 +49,10 @@ const Frontpage = () => {
               justifyContent: "center",
               alignItems: "center",
               fontFamily: "Roboto-Regular",
-              fontSize: 18,
-              fontWeight: "400",
+              fontSize: 16,
+              fontWeight: "600",
               textAlign: "center",
-              lineHeight: 30,
+              lineHeight: 32,
               color: "#fff",
             }}
           >
@@ -94,7 +102,7 @@ const styles = StyleSheet.create({
     height: hp("6.5%"),
     borderRadius: 50,
     alignSelf: "center",
-    margin: 35,
+    margin: 50,
   },
 });
 

@@ -188,7 +188,7 @@ const UpdateFrontImage = ({ route, navigation }) => {
                 justifyContent: "space-around",
                 alignItems: "center",
                 width: wp(100),
-                marginBottom: 25,
+                marginBottom: 30,
               }}
             >
               {!loading ? (
@@ -260,7 +260,7 @@ export default UpdateFrontImage;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: wp("25%"),
+    paddingTop: wp("25"),
   },
   buttonContainer: {
     flexDirection: "column",
@@ -268,6 +268,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     width: wp(100),
     position: "absolute",
-    bottom: 25,
+    bottom: 35,
   },
 });

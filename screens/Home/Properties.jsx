@@ -68,6 +68,7 @@ const Properties = ({ route }) => {
       <ImageBackground
         source={require("../../assets/ImageBackground.png")}
         style={{
+          position: "absolute",
           right: 0,
           bottom: 0,
           flex: 1,
@@ -188,7 +189,7 @@ export default Properties;
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: wp(15),
+    paddingTop: wp(13),
     flex: 1,
   },
   propertieontainer: {
@@ -199,12 +200,12 @@ const styles = StyleSheet.create({
     paddingLeft: wp(2),
     flexDirection: "row",
     marginHorizontal: wp(4),
-    borderRadius: wp(2),
     height: hp("13%"),
     marginBottom: wp(5),
     borderWidth: 1,
     borderColor: "#4A5F71",
     elevation: 5,
+    borderRadius: 20,
   },
   image: {
     resizeMode: "contain",

@@ -16,7 +16,6 @@ import {
   ActivityIndicator,
   Image,
 } from "react-native";
-import Header from "../../Component/Header";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
@@ -111,50 +110,53 @@ const Login = () => {
           resizeMode="cover"
         >
           <View style={styles.container}>
-            <TouchableOpacity
-              onPress={() => navigation.navigate("SignUP")}
-              style={{
-                width: wp("18%"),
-                justifyContent: "flex-start",
-              }}
-            >
-              <Image
+            <View style={{ marginHorizontal: 13 }}>
+              <TouchableOpacity
+                onPress={() => navigation.navigate("SignUP")}
                 style={{
-                  width: wp("18%"),
-                  height: wp("18%"),
-                  resizeMode: "contain",
-                }}
-                source={require("../../assets/BackButton.png")}
-              />
-            </TouchableOpacity>
-            <View style={{ marginHorizontal: 19 }}>
-              <Text
-                style={{
-                  fontFamily: "Roboto-Regular",
-                  fontSize: 24,
-                  fontWeight: "600",
-                  color: "#fff",
-                  marginBottom: 3,
+                  width: "18%",
+                  justifyContent: "flex-start",
                 }}
               >
-                Welcome Back
-              </Text>
-              <Text
-                style={{
-                  fontFamily: "Roboto-Regular",
-                  fontSize: 16,
-                  fontWeight: "400",
-                  color: "#B6B6B6",
-                }}
-              >
-                Enter your email address and password
-              </Text>
+                <Image
+                  style={{
+                    width: 60,
+                    height: 60,
+                    resizeMode: "contain",
+                    marginBottom: 5,
+                  }}
+                  source={require("../../assets/BackButton.png")}
+                />
+              </TouchableOpacity>
+              <View style={{ marginHorizontal: 14 }}>
+                <Text
+                  style={{
+                    fontFamily: "Roboto-Regular",
+                    fontSize: 24,
+                    fontWeight: "600",
+                    color: "#fff",
+                    marginBottom: 8,
+                  }}
+                >
+                  Welcome Back
+                </Text>
+                <Text
+                  style={{
+                    fontFamily: "Roboto-Regular",
+                    fontSize: 16,
+                    fontWeight: "400",
+                    color: "#B6B6B6",
+                  }}
+                >
+                  Enter your email address and password
+                </Text>
+              </View>
             </View>
             <>
               <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
                 <View
                   style={{
-                    paddingTop: wp(9),
+                    paddingTop: wp(18),
                     justifyContent: "center",
                     alignItems: "center",
                   }}
@@ -253,7 +255,7 @@ const Login = () => {
                 <Text
                   style={{
                     marginBottom: 10,
-                    color: "#069FF8",
+                    color: "#fff",
                     fontWeight: "600",
                     fontSize: 14,
                     fontFamily: "Roboto-Regular",
@@ -310,7 +312,7 @@ const Login = () => {
                 flex: 1,
                 position: "absolute",
                 alignSelf: "center",
-                bottom: 45,
+                bottom: 55,
               }}
             >
               <Text
@@ -348,7 +350,7 @@ export default Login;
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: wp(15),
+    paddingTop: wp(13),
     flex: 1,
   },
   inputField: {
@@ -371,6 +373,6 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     alignSelf: "center",
     position: "absolute",
-    bottom: 80,
+    bottom: 95,
   },
 });

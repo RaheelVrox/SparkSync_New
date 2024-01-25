@@ -90,7 +90,7 @@ const UploadBackPage = () => {
               <Text
                 style={{
                   fontFamily: "Roboto-Regular",
-                  fontSize: 16,
+                  fontSize: 14,
                   fontWeight: "400",
                   color: "#B6B6B6",
                   marginHorizontal: 24,
@@ -139,7 +139,7 @@ export default UploadBackPage;
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: wp(15),
+    paddingTop: wp(13),
     flex: 1,
   },
   button: {
@@ -148,7 +148,6 @@ const styles = StyleSheet.create({
     borderRadius: 60,
     alignSelf: "center",
     position: "absolute",
-    bottom: 30,
-    // marginTop: 85,
+    bottom: 60,
   },
 });

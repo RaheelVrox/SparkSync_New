@@ -213,6 +213,7 @@ const DeregulatedAreas = () => {
       <ImageBackground
         source={require("../../assets/ImageBackground.png")}
         style={{
+          position: "absolute",
           right: 0,
           bottom: 0,
           flex: 1,
@@ -293,7 +294,7 @@ export default DeregulatedAreas;
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: wp(15),
+    paddingTop: wp(13),
     flex: 1,
   },
   areacontainer: {

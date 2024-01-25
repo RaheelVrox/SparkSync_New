@@ -121,6 +121,11 @@ const StackNavigation = () => {
               name="Login"
               component={Login}
             />
+            <Stack.Screen
+              options={{ headerShown: false }}
+              name="FrontPage"
+              component={Frontpage}
+            />
           </>
         ) : (
           <>

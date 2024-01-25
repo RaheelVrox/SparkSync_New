@@ -24,6 +24,7 @@ const AboutTexas = () => {
       <ImageBackground
         source={require("../../assets/ImageBackground.png")}
         style={{
+          position: "absolute",
           right: 0,
           bottom: 0,
           flex: 1,
@@ -33,16 +34,21 @@ const AboutTexas = () => {
         resizeMode="cover"
       >
         <View style={styles.container}>
-          <TouchableOpacity onPress={() => navigation.navigate("HomePage")}>
-            <Image
-              style={{
-                width: wp("18%"),
-                height: wp("18%"),
-                resizeMode: "contain",
-              }}
-              source={require("../../assets/BackButton.png")}
-            />
-          </TouchableOpacity>
+          <View style={{ marginHorizontal: 13 }}>
+            <TouchableOpacity
+              onPress={() => navigation.navigate("HomePage")}
+              style={{ width: "18%" }}
+            >
+              <Image
+                style={{
+                  width: 60,
+                  height: 60,
+                  resizeMode: "contain",
+                }}
+                source={require("../../assets/BackButton.png")}
+              />
+            </TouchableOpacity>
+          </View>
           <Text
             style={{
               fontSize: 20,
@@ -106,7 +112,7 @@ export default AboutTexas;
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: wp(14),
+    paddingTop: wp(13),
     flex: 1,
   },
   detailcontainer: {
@@ -115,14 +121,14 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     padding: 20,
     marginHorizontal: 24,
-    marginTop: 30,
+    marginTop: 40,
     marginBottom: 20,
     flex: 1,
   },
   text: {
     color: "#B6B6B6",
     fontFamily: "Roboto-Regular",
-    fontSize: 16,
+    fontSize: 14,
     fontWeight: "500",
     lineHeight: 24,
   },

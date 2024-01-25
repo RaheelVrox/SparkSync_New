@@ -237,10 +237,9 @@ const EditProfile = ({ route }) => {
                 <View>
                   <KeyboardAvoidingView
                     enabled
-                    behavior={Platform.OS === "ios" ? "padding" : "height"}
+                    behavior={Platform.OS === "ios" ? "padding" : null}
                   >
                     <TextInput
-                      multiline
                       placeholder="Your address"
                       style={{
                         ...styles.inputField,
@@ -249,6 +248,7 @@ const EditProfile = ({ route }) => {
                         fontWeight: "600",
                         color: addressInputColor,
                         height: hp("7.5%"),
+                        textAlignVertical: "center",
                       }}
                       value={address}
                       onChangeText={handleaddressChange}
@@ -265,13 +265,13 @@ const EditProfile = ({ route }) => {
                     behavior={Platform.OS === "ios" ? "padding" : "height"}
                   >
                     <TextInput
-                      placeholder="Phone number"
                       style={{
                         ...styles.inputField,
                         fontSize: 14,
                         fontFamily: "Roboto-Regular",
                         fontWeight: "600",
                         color: phoneInputColor,
+                        lineSpacingMultiplier: 1.5,
                       }}
                       value={phone_number}
                       onChangeText={handlePhoneChange}
@@ -289,7 +289,7 @@ const EditProfile = ({ route }) => {
                   >
                     <TextInput
                       placeholder="Your email"
-                      multiline
+                      // multiline
                       style={{
                         ...styles.inputField,
                         fontSize: 14,

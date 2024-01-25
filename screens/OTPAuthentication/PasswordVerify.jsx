@@ -12,6 +12,8 @@ import {
   TouchableWithoutFeedback,
   Keyboard,
   Alert,
+  Image,
+  ActivityIndicator,
 } from "react-native";
 import {
   widthPercentageToDP as wp,
@@ -24,11 +26,13 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import ApiData from "../../apiconfig.js";
 import Header from "../../Component/Header";
 
-const PasswordVerify = () => {
+const OTPVerify = () => {
   const navigation = useNavigation();
   const [otp, setOtp] = useState(["", "", "", ""]);
   const [useremail, setUseremail] = useState("");
+  const [loading, setLoading] = useState(false);
   const otpInputRefs = [];
+
   const handleInputChange = (index, value) => {
     const newOtp = [...otp];
     newOtp[index] = value;
@@ -38,6 +42,7 @@ const PasswordVerify = () => {
       otpInputRefs[index + 1].focus();
     }
   };
+
   useEffect(() => {
     const getUserID = async () => {
       const value = await AsyncStorage.getItem("email");
@@ -47,16 +52,21 @@ const PasswordVerify = () => {
     };
     getUserID();
   }, []);
+
   const handleVerificationError = (errorMessage) => {
     Alert.alert("Validation Error", errorMessage);
   };
+
   const handleVerifyCode = async () => {
     try {
-      const apiUrl = `${ApiData.url}/api/v1/user/verify/`;
-      const requestData = {
-        otp: otp.join(""),
-      };
+      setLoading(true); // Show loader
 
+      const apiUrl = `${ApiData.url}/api/v1/user/verify/`;
+      const newOTP = otp[0] + otp[1] + otp[2] + otp[3];
+
+      const requestData = {
+        otp: newOTP,
+      };
       await axios
         .post(apiUrl, requestData)
         .then(async (response) => {
@@ -64,25 +74,25 @@ const PasswordVerify = () => {
         })
         .catch((error) => {
           if (error.response) {
-            // console.error("Server responded with error status:", error.response.status);
-
             if (error.response.data && error.response.data.message) {
               handleVerificationError(error.response.data.message);
             } else {
               handleVerificationError("Invalid OTP: Please try again");
             }
           } else if (error.request) {
-            // console.error("No response received:", error.request);
             handleVerificationError("Failed to verify OTP. Please try again.");
           } else {
-            // console.error("Request setup error:", error.message);
             handleVerificationError(
               "An unexpected error occurred. Please try again."
             );
           }
+        })
+        .finally(() => {
+          setLoading(false); // Hide loader
         });
     } catch (error) {
       console.error("Error:", error);
+      setLoading(false); // Hide loader in case of an error
     }
   };
 
@@ -177,30 +187,42 @@ const PasswordVerify = () => {
               </TouchableOpacity>
             </View>
             <>
-              <LinearGradient
-                colors={["#6FCAFF", "#0081CC"]}
-                style={styles.button}
-              >
-                <TouchableOpacity
-                  onPress={handleVerifyCode}
+              {loading ? (
+                <ActivityIndicator
+                  size={50}
+                  color="#069FF8"
                   style={{
-                    flex: 1,
-                    alignItems: "center",
-                    justifyContent: "center",
+                    position: "absolute",
+                    bottom: 70,
+                    alignSelf: "center",
                   }}
+                />
+              ) : (
+                <LinearGradient
+                  colors={["#6FCAFF", "#0081CC"]}
+                  style={styles.button}
                 >
-                  <Text
+                  <TouchableOpacity
+                    onPress={handleVerifyCode}
                     style={{
-                      fontSize: 18,
-                      fontWeight: "600",
-                      fontFamily: "Roboto-Regular",
-                      color: "#fff",
+                      flex: 1,
+                      alignItems: "center",
+                      justifyContent: "center",
                     }}
                   >
-                    Continue
-                  </Text>
-                </TouchableOpacity>
-              </LinearGradient>
+                    <Text
+                      style={{
+                        fontSize: 18,
+                        fontWeight: "600",
+                        fontFamily: "Roboto-Regular",
+                        color: "#fff",
+                      }}
+                    >
+                      Continue
+                    </Text>
+                  </TouchableOpacity>
+                </LinearGradient>
+              )}
             </>
           </View>
         </ImageBackground>
@@ -211,7 +233,7 @@ const PasswordVerify = () => {
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: wp(15),
+    paddingTop: wp(13),
     flex: 1,
   },
   otpContainer: {
@@ -223,7 +245,7 @@ const styles = StyleSheet.create({
   otpInput: {
     width: wp(15.6),
     height: wp(15.6),
-    borderWidth: 1.5,
+    borderWidth: 1,
     borderColor: "#607A8C",
     fontSize: wp(6),
     textAlign: "center",
@@ -243,8 +265,8 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     alignSelf: "center",
     position: "absolute",
-    bottom: 80,
+    bottom: 70,
   },
 });
 
-export default PasswordVerify;
+export default OTPVerify;

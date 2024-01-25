@@ -18,6 +18,7 @@ const FrequentlyQuestion = () => {
       <ImageBackground
         source={require("../../assets/ImageBackground.png")}
         style={{
+          position: "absolute",
           right: 0,
           bottom: 0,
           flex: 1,
@@ -32,7 +33,7 @@ const FrequentlyQuestion = () => {
               title="Frequently Asked Questions"
               subTitle="Some of the ways that Texans can save energy"
             />
-            <View style={{ paddingTop: wp(12) }}>
+            <View style={{ paddingTop: 45 }}>
               <FAQ question="" answer="" />
             </View>
           </View>
@@ -46,7 +47,7 @@ export default FrequentlyQuestion;
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: wp(14),
+    paddingTop: wp(13),
     flex: 1,
   },
 });

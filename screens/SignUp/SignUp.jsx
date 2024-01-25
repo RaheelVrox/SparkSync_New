@@ -10,39 +10,44 @@ import {
   Keyboard,
   Platform,
   ScrollView,
+  Alert,
   ActivityIndicator,
   ImageBackground,
-  SafeAreaView,
   Dimensions,
-  Alert,
+  Image,
 } from "react-native";
-import { LinearGradient } from "expo-linear-gradient";
+import { useNavigation } from "@react-navigation/native";
+import axios from "axios";
+import Header from "../../Component/Header";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { useNavigation } from "@react-navigation/native";
-import Header from "../../Component/Header";
 import ApiData from "../../apiconfig";
 import { useUserData } from "../../UserDataContext";
-import axios from "axios";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { LinearGradient } from "expo-linear-gradient";
 
 const SignUP = () => {
+  const { setUserData } = useUserData();
+
   const [isLoading, setIsLoading] = useState(false);
+
   const navigation = useNavigation();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone_number, setPhoneNumber] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const { setUserData } = useUserData();
+
   const toggleShowPassword = () => {
     setShowPassword(!showPassword);
   };
 
   const handleEmailChange = (text) => {
     const trimmedEmail = text.trim();
+    // Update the state with the trimmed email
     setEmail(trimmedEmail.toLowerCase());
   };
   const handleSignUp = async () => {
@@ -107,17 +112,15 @@ const SignUP = () => {
           flex: 1,
           left: 0,
           top: 0,
+          width: Dimensions.get("screen").width,
+          height: Dimensions.get("screen").height,
         }}
         resizeMode="cover"
       >
         <View style={styles.container}>
-          <Header
-            title="Sign Up"
-            subTitle="It only takes a minute to create your account"
-          />
           <>
             <KeyboardAvoidingView
-              behavior={Platform.OS === "ios" ? "position" : "height"}
+              behavior={Platform.OS === "ios" ? "padding" : "height"}
             >
               <ScrollView
                 contentContainerStyle={{ flexGrow: 1 }}
@@ -126,18 +129,60 @@ const SignUP = () => {
                 <>
                   <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
                     <>
+                      <View style={{ marginHorizontal: 13 }}>
+                        <TouchableOpacity
+                          onPress={() => navigation.navigate("FrontPage")}
+                          style={{
+                            width: "18%",
+                            justifyContent: "flex-start",
+                          }}
+                        >
+                          <Image
+                            style={{
+                              width: 60,
+                              height: 60,
+                              resizeMode: "contain",
+                              marginBottom: 5,
+                            }}
+                            source={require("../../assets/BackButton.png")}
+                          />
+                        </TouchableOpacity>
+                        <View style={{ marginHorizontal: 14 }}>
+                          <Text
+                            style={{
+                              fontFamily: "Roboto-Regular",
+                              fontSize: 24,
+                              fontWeight: "600",
+                              color: "#fff",
+                              marginBottom: 8,
+                            }}
+                          >
+                            Sign Up
+                          </Text>
+                          <Text
+                            style={{
+                              fontFamily: "Roboto-Regular",
+                              fontSize: 16,
+                              fontWeight: "400",
+                              color: "#B6B6B6",
+                            }}
+                          >
+                            It only takes a minute to create your account
+                          </Text>
+                        </View>
+                      </View>
                       <View
                         style={{
-                          paddingTop: wp(15),
+                          paddingTop: wp(18),
                           justifyContent: "center",
                           alignItems: "center",
                         }}
                       >
                         <KeyboardAvoidingView
-                          enabled
                           behavior={
                             Platform.OS === "ios" ? "padding" : "height"
                           }
+                          style={{ flex: 1 }}
                         >
                           <Text
                             style={{
@@ -226,7 +271,7 @@ const SignUP = () => {
                             }}
                             value={phone_number}
                             onChangeText={(text) => setPhoneNumber(text)}
-                            maxLength={11}
+                            maxLength={13}
                             placeholderTextColor="#B6B6B6"
                             keyboardType="phone-pad"
                           />
@@ -281,7 +326,6 @@ const SignUP = () => {
                           </View>
                         </KeyboardAvoidingView>
                       </View>
-
                       {isLoading ? (
                         <View
                           style={{
@@ -327,7 +371,7 @@ const SignUP = () => {
                         style={{
                           justifyContent: "center",
                           alignItems: "center",
-                          paddingTop: wp(2),
+                          paddingTop: 30,
                           flexDirection: "row",
                           flex: 1,
                         }}
@@ -372,7 +416,7 @@ const SignUP = () => {
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: wp(15),
+    paddingTop: wp(13),
     flex: 1,
   },
   inputField: {
@@ -385,7 +429,7 @@ const styles = StyleSheet.create({
     borderWidth: 1.5,
     borderColor: "#607A8C",
     elevation: 5,
-    marginBottom: 10,
+    marginBottom: wp(3),
     paddingLeft: wp(5),
     shadowColor: "#4A5F71",
     elevation: 10,
@@ -394,7 +438,7 @@ const styles = StyleSheet.create({
     width: wp("85%"),
     height: hp("6.5%"),
     borderRadius: 50,
-    marginTop: 30,
+    marginTop: 35,
     alignSelf: "center",
   },
 });

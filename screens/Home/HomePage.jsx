@@ -33,29 +33,38 @@ const HomePage = () => {
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#000000" }}>
-      <ScrollView style={{ flex: 1 }}>
-        <ImageBackground
-          source={require("../../assets/ImageBackground.png")}
-          style={{
-            right: 0,
-            bottom: 0,
-            flex: 1,
-            left: 0,
-            top: 0,
-            width: Dimensions.get("screen").width,
-            height: Dimensions.get("screen").height,
-          }}
-          resizeMode="cover"
-        >
+      <ImageBackground
+        source={require("../../assets/ImageBackground.png")}
+        style={{
+          position: "absolute",
+          right: 0,
+          bottom: 0,
+          flex: 1,
+          left: 0,
+          top: 0,
+        }}
+        resizeMode="cover"
+      >
+        <ScrollView style={{ flex: 1 }}>
           <View style={styles.container}>
-            <View style={{ flexDirection: "row", alignItems: "center" }}>
-              <Image
-                style={{
-                  resizeMode: "contain",
-                  width: "30%",
-                }}
-                source={require("../../assets/homelogo.png")}
-              />
+            <View
+              style={{
+                flexDirection: "row",
+                alignItems: "center",
+                justifyContent: "space-evenly",
+              }}
+            >
+              <View style={{ width: "30%" }}>
+                <Image
+                  style={{
+                    resizeMode: "contain",
+                    left: 8,
+                    top: 70,
+                    opacity: 0.3,
+                  }}
+                  source={require("../../assets/homelogo.png")}
+                />
+              </View>
               <View>
                 <Text
                   style={{
@@ -80,13 +89,16 @@ const HomePage = () => {
                   Areas
                 </Text>
               </View>
+              <View style={{ width: "30%" }}></View>
             </View>
             <View
               style={{
                 flexDirection: "row",
                 alignItems: "center",
-                justifyContent: "center",
                 alignSelf: "center",
+                justifyContent: "center",
+                alignContent: "center",
+                marginTop: -25,
               }}
             >
               <Image
@@ -94,7 +106,10 @@ const HomePage = () => {
                   resizeMode: "contain",
                   alignItems: "center",
                   alignSelf: "center",
-                  top: -25,
+                  justifyContent: "center",
+                  alignContent: "center",
+                  width: 298,
+                  height: 298,
                 }}
                 source={require("../../assets/map.png")}
               />
@@ -102,6 +117,9 @@ const HomePage = () => {
                 style={{
                   resizeMode: "contain",
                   alignSelf: "flex-start",
+                  position: "absolute",
+                  right: 0,
+                  marginRight: -23,
                 }}
                 source={require("../../assets/Electricity.png")}
               />
@@ -112,7 +130,7 @@ const HomePage = () => {
                   color: "#DEB9A9",
                   textAlign: "center",
                   fontFamily: "Roboto-Regular",
-                  fontSize: 16,
+                  fontSize: 14,
                   fontWeight: "600",
                   lineHeight: 24,
                   marginBottom: 25,
@@ -122,12 +140,12 @@ const HomePage = () => {
                   style={{
                     color: "#069FF8",
                     fontFamily: "Roboto-Regular",
-                    fontSize: 18,
+                    fontSize: 16,
                     fontWeight: "600",
                   }}
                 >
                   85%
-                </Text>
+                </Text>{" "}
                 of Texans live in a deregulated area and can pick their
                 electricity provider.
               </Text>
@@ -380,8 +398,8 @@ const HomePage = () => {
               </TouchableOpacity>
             </View>
           </View>
-        </ImageBackground>
-      </ScrollView>
+        </ScrollView>
+      </ImageBackground>
     </SafeAreaView>
   );
 };
@@ -390,7 +408,7 @@ export default HomePage;
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: wp(15),
+    paddingTop: wp(13),
     flex: 1,
   },
   divider: {

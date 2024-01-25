@@ -1,9 +1,5 @@
 import { StyleSheet, Text, View, TouchableOpacity, Image } from "react-native";
 import React from "react";
-import {
-  widthPercentageToDP as wp,
-  heightPercentageToDP as hp,
-} from "react-native-responsive-screen";
 import { useNavigation } from "@react-navigation/native";
 
 const Header = ({ title, subTitle }) => {
@@ -13,44 +9,47 @@ const Header = ({ title, subTitle }) => {
   };
   return (
     <>
-      <TouchableOpacity
-        onPress={goBack}
-        style={{
-          width: wp("18%"),
-          justifyContent: "flex-start",
-        }}
-      >
-        <Image
+      <View style={{ marginHorizontal: 13 }}>
+        <TouchableOpacity
+          onPress={goBack}
           style={{
-            width: wp("18%"),
-            height: wp("18%"),
-            resizeMode: "contain",
-          }}
-          source={require("../assets/BackButton.png")}
-        />
-      </TouchableOpacity>
-      <View style={{ marginHorizontal: 19 }}>
-        <Text
-          style={{
-            fontFamily: "Roboto-Regular",
-            fontSize: 24,
-            fontWeight: "600",
-            color: "#fff",
-            marginBottom: 3,
+            width: "18%",
+            justifyContent: "flex-start",
           }}
         >
-          {title}
-        </Text>
-        <Text
-          style={{
-            fontFamily: "Roboto-Regular",
-            fontSize: 16,
-            fontWeight: "400",
-            color: "#B6B6B6",
-          }}
-        >
-          {subTitle}
-        </Text>
+          <Image
+            style={{
+              width: 60,
+              height: 60,
+              resizeMode: "contain",
+              marginBottom: 5,
+            }}
+            source={require("../assets/BackButton.png")}
+          />
+        </TouchableOpacity>
+        <View style={{ marginHorizontal: 14 }}>
+          <Text
+            style={{
+              fontFamily: "Roboto-Regular",
+              fontSize: 24,
+              fontWeight: "600",
+              color: "#fff",
+              marginBottom: 8,
+            }}
+          >
+            {title}
+          </Text>
+          <Text
+            style={{
+              fontFamily: "Roboto-Regular",
+              fontSize: 16,
+              fontWeight: "400",
+              color: "#B6B6B6",
+            }}
+          >
+            {subTitle}
+          </Text>
+        </View>
       </View>
     </>
   );

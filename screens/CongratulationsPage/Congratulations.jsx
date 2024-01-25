@@ -19,7 +19,17 @@ const Congratulations = () => {
     <SafeAreaView style={{ flex: 1, backgroundColor: "#000000" }}>
       <ImageBackground
         source={require("../../assets/ImageBackground.png")}
-        style={{ flex: 1, resizeMode: "cover" }}
+        style={{
+          position: "absolute",
+          right: 0,
+          bottom: 0,
+          flex: 1,
+          left: 0,
+          top: 0,
+          // width: Dimensions.get("sreen").width,
+          // height: Dimensions.get("screen").height,
+        }}
+        resizeMode="cover"
       >
         <View style={styles.container}>
           <Image
@@ -97,7 +107,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
-    paddingTop: wp(60),
+    paddingTop: wp(55),
   },
   button: {
     width: wp("40%"),
