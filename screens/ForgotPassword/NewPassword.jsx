@@ -147,7 +147,7 @@ const NewPassword = () => {
                   <MaterialCommunityIcons
                     name={showPassword ? "eye" : "eye-off"}
                     size={26}
-                    color="#346AFE"
+                    color="#069FF8"
                     style={{
                       position: "absolute",
                       alignSelf: "flex-end",
@@ -192,7 +192,7 @@ const NewPassword = () => {
                   <MaterialCommunityIcons
                     name={showPassword ? "eye" : "eye-off"}
                     size={26}
-                    color="#346AFE"
+                    color="#069FF8"
                     style={{
                       position: "absolute",
                       alignSelf: "flex-end",
@@ -254,7 +254,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     position: "absolute",
-    bottom: 40,
+    bottom: 35,
   },
   buttonText: {
     fontSize: 18,

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   StyleSheet,
   View,
@@ -18,7 +18,6 @@ import {
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import axios from "axios";
-import Header from "../../Component/Header";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
@@ -33,6 +32,7 @@ const SignUP = () => {
   const { setUserData } = useUserData();
 
   const [isLoading, setIsLoading] = useState(false);
+  const [isKeyboardOpen, setIsKeyboardOpen] = useState(false);
 
   const navigation = useNavigation();
   const [name, setName] = useState("");
@@ -74,14 +74,14 @@ const SignUP = () => {
       await axios
         .post(apiUrl, requestData)
         .then(async (response) => {
-          console.log("signup_data:", response.data);
+          // console.log("signup_data:", response.data);
 
           if (response.data.message === "User with this email already exist!") {
             Alert.alert("Validation Error", response.data.message);
             setIsLoading(false);
           } else {
             setUserData(response.data.newUser);
-            console.log("store", response.data.newUser);
+            // console.log("store", response.data.newUser);
             setIsLoading(false);
             // Move navigation here after a successful response
             navigation.navigate("OTPVerify");
@@ -100,6 +100,27 @@ const SignUP = () => {
       console.error("Error:", error);
     }
   };
+
+  useEffect(() => {
+    const keyboardDidShowListener = Keyboard.addListener(
+      "keyboardDidShow",
+      () => {
+        setIsKeyboardOpen(true);
+      }
+    );
+
+    const keyboardDidHideListener = Keyboard.addListener(
+      "keyboardDidHide",
+      () => {
+        setIsKeyboardOpen(false);
+      }
+    );
+    // Clean up listeners on component unmount
+    return () => {
+      keyboardDidShowListener.remove();
+      keyboardDidHideListener.remove();
+    };
+  }, []);
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#000000" }}>
@@ -124,7 +145,7 @@ const SignUP = () => {
             >
               <ScrollView
                 contentContainerStyle={{ flexGrow: 1 }}
-                keyboardShouldPersistTaps="handled"
+                scrollEnabled={isKeyboardOpen === true ? true : false}
               >
                 <>
                   <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
