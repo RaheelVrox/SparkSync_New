@@ -161,13 +161,13 @@ const HomePage = () => {
                 <TouchableOpacity
                   onPress={() => navigation.navigate("EnergySavingTips")}
                   style={{
-                    width: wp("37.5%"),
+                    width: wp("38%"),
                     height: hp("6.5%"),
-                    backgroundColor: "#04202C",
+                    backgroundColor: "#063B58",
                     justifyContent: "center",
                     alignItems: "center",
                     borderWidth: 1,
-                    borderColor: "#607A8C",
+                    borderColor: "#063B58",
                     elevation: 5,
                     borderRadius: 50,
                   }}
@@ -198,16 +198,16 @@ const HomePage = () => {
                 <TouchableOpacity
                   onPress={() => navigation.navigate("FrequentlyQuestion")}
                   style={{
-                    width: wp("37.5%"),
+                    width: wp("38%"),
                     height: hp("6.5%"),
-                    backgroundColor: "#04202C",
+                    backgroundColor: "#063B58",
                     justifyContent: "center",
                     alignSelf: "center",
                     alignContent: "center",
                     alignItems: "center",
                     borderRadius: 50,
                     borderWidth: 1,
-                    borderColor: "#607A8C",
+                    borderColor: "#063B58",
                     elevation: 5,
                   }}
                 >
@@ -246,25 +246,23 @@ const HomePage = () => {
               <TouchableOpacity
                 onPress={() => navigation.navigate("Properties")}
                 style={{
-                  width: wp("27%"),
+                  width: wp("27.5%"),
                   height: hp("20%"),
                   marginHorizontal: 10,
                   marginVertical: 2,
                   padding: 3,
                   borderWidth: 1,
                   borderRadius: 20,
-                  borderColor: "#607A8C",
+                  borderColor: "#063B58",
                   justifyContent: "center",
                   alignItems: "center",
-                  backgroundColor: "#04202C",
+                  backgroundColor: "#063B58",
                 }}
               >
                 <Image
                   source={require("../../assets/home.png")}
                   style={{
                     resizeMode: "contain",
-                    width: 70,
-                    height: 70,
                     marginBottom: 10,
                     alignSelf: "center",
                   }}
@@ -272,7 +270,7 @@ const HomePage = () => {
                 <Text
                   style={{
                     color: "#fff",
-                    fontSize: 14,
+                    fontSize: 15,
                     justifyContent: "center",
                     alignSelf: "center",
                     fontFamily: "Roboto-Regular",
@@ -284,7 +282,7 @@ const HomePage = () => {
                 <Text
                   style={{
                     color: "#fff",
-                    fontSize: 14,
+                    fontSize: 15,
                     justifyContent: "center",
                     alignSelf: "center",
                     fontFamily: "Roboto-Regular",
@@ -297,25 +295,25 @@ const HomePage = () => {
               <TouchableOpacity
                 onPress={() => navigation.navigate("DeregulatedAreas")}
                 style={{
-                  width: wp("27%"),
+                  width: wp("27.5%"),
                   height: hp("20%"),
                   // marginHorizontal: 10,
                   marginVertical: 2,
                   padding: 3,
                   borderWidth: 1,
                   borderRadius: 20,
-                  borderColor: "#607A8C",
+                  borderColor: "#063B58",
                   justifyContent: "center",
                   alignItems: "center",
-                  backgroundColor: "#04202C",
+                  backgroundColor: "#063B58",
                 }}
               >
                 <Image
                   source={require("../../assets/location.png")}
                   style={{
                     resizeMode: "contain",
-                    width: 70,
-                    height: 70,
+                    // width: 70,
+                    // height: 70,
                     marginBottom: 10,
                     alignSelf: "center",
                   }}
@@ -323,7 +321,7 @@ const HomePage = () => {
                 <Text
                   style={{
                     color: "#fff",
-                    fontSize: 14,
+                    fontSize: 15,
                     justifyContent: "center",
                     alignSelf: "center",
                     fontFamily: "Roboto-Regular",
@@ -335,7 +333,7 @@ const HomePage = () => {
                 <Text
                   style={{
                     color: "#fff",
-                    fontSize: 14,
+                    fontSize: 15,
                     justifyContent: "center",
                     alignSelf: "center",
                     fontFamily: "Roboto-Regular",
@@ -348,25 +346,25 @@ const HomePage = () => {
               <TouchableOpacity
                 onPress={() => navigation.navigate("AboutTexas")}
                 style={{
-                  width: wp("27%"),
+                  width: wp("27.5%"),
                   height: hp("20%"),
                   marginHorizontal: 10,
                   marginVertical: 2,
                   padding: 3,
                   borderWidth: 1,
                   borderRadius: 20,
-                  borderColor: "#607A8C",
+                  borderColor: "#063B58",
                   justifyContent: "center",
                   alignItems: "center",
-                  backgroundColor: "#04202C",
+                  backgroundColor: "#063B58",
                 }}
               >
                 <Image
                   source={require("../../assets/electrcity.png")}
                   style={{
                     resizeMode: "contain",
-                    width: 70,
-                    height: 70,
+                    // width: 70,
+                    // height: 70,
                     marginBottom: 10,
                     alignSelf: "center",
                   }}
@@ -374,7 +372,7 @@ const HomePage = () => {
                 <Text
                   style={{
                     color: "#fff",
-                    fontSize: 14,
+                    fontSize: 15,
                     justifyContent: "center",
                     alignSelf: "center",
                     fontFamily: "Roboto-Regular",
@@ -386,7 +384,7 @@ const HomePage = () => {
                 <Text
                   style={{
                     color: "#fff",
-                    fontSize: 14,
+                    fontSize: 15,
                     justifyContent: "center",
                     alignSelf: "center",
                     fontFamily: "Roboto-Regular",

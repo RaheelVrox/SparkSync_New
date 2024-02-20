@@ -152,7 +152,7 @@ const Profile = () => {
               <Text style={styles.buttonText}>Edit Profile</Text>
             </TouchableOpacity>
           </View>
-          <View style={styles.detailContainer}>
+          <View style={{ marginTop: wp(17)}}>
             <TouchableOpacity
               onPress={() => navigation.navigate("ForgotPassword")}
             >
@@ -213,10 +213,6 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     alignSelf: "center",
     marginTop: 20,
-  },
-  detailContainer: {
-    marginTop: wp(17),
-    justifyContent: "flex-start",
   },
   text: {
     fontFamily: "Roboto-Regular",
