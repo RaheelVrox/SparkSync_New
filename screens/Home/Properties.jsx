@@ -134,12 +134,12 @@ const Properties = ({ route }) => {
                               </View>
                               <View
                                 style={{
-                                  width: "60%",
+                                  // width: "60%",
                                   flexDirection: "row",
                                   alignItems: "center",
+                                  alignSelf: "center",
                                   justifyContent: "space-evenly",
-                                  marginLeft: wp(6),
-                                  gap: wp(1),
+                                  // gap: wp(2),
                                 }}
                               >
                                 <Image
@@ -212,8 +212,6 @@ const styles = StyleSheet.create({
     width: wp("35%"),
     height: hp("10%"),
     alignItems: "center",
-    borderColor: "#607A8C",
-    borderRadius: 5,
   },
   loader: {
     flex: 1,

@@ -282,7 +282,7 @@ const SignUP = () => {
                             Phone
                           </Text>
                           <TextInput
-                            placeholder="Your phone number"
+                            placeholder="+14155550132"
                             style={{
                               ...styles.inputField,
                               fontSize: 16,
@@ -292,7 +292,6 @@ const SignUP = () => {
                             }}
                             value={phone_number}
                             onChangeText={(text) => setPhoneNumber(text)}
-                            maxLength={13}
                             placeholderTextColor="#B6B6B6"
                             keyboardType="phone-pad"
                           />
