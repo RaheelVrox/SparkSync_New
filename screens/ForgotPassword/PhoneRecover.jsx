@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from "react";
 import {
   StyleSheet,
   Text,
@@ -11,17 +12,57 @@ import {
   TouchableWithoutFeedback,
   Keyboard,
   Platform,
+  Alert,
+  ActivityIndicator,
 } from "react-native";
-import React, { useState } from "react";
 import Header from "../../Component/Header";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
 import { LinearGradient } from "expo-linear-gradient";
+import { useNavigation } from "@react-navigation/native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import axios from "axios";
+import ApiData from "../../apiconfig";
 
 const PhoneRecover = () => {
-  const [phone_number, setPhoneNumber] = useState("");
+  const [identifier, setPhoneNumbe] = useState("");
+  const [loading, setLoading] = useState(false); 
+  const navigation = useNavigation();
+
+  const handleVerificationError = (errorMessage) => {
+    Alert.alert("Validation Error", errorMessage);
+  };
+
+  const handleResetPasword = async () => {
+    try {
+      if (!identifier) {
+        handleVerificationError("Please enter your phone number");
+        return;
+      }
+      setLoading(true); 
+      const apiUrl = `${ApiData.url}/api/v1/user/forgot-password/`;
+      const requestData = {
+        identifier,
+      };
+      await axios
+        .post(apiUrl, requestData)
+        .then(async (response) => {
+          await AsyncStorage.setItem("phone_number", identifier);
+          navigation.navigate("PasswordVerify");
+        })
+        .catch((error) => {
+          handleVerificationError("Invalid email. Please try again");
+        })
+        .finally(() => {
+          setLoading(false); 
+        });
+    } catch (error) {
+      console.error("Error:", error);
+      setLoading(false); 
+    }
+  };
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#000000" }}>
@@ -42,7 +83,7 @@ const PhoneRecover = () => {
         <View style={styles.container}>
           <Header
             title="Reset Password"
-            subTitle="Select verification method and we will send verification code"
+            subTitle="Enter your registered phone number "
           />
           <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
             <View
@@ -68,7 +109,7 @@ const PhoneRecover = () => {
                   Phone
                 </Text>
                 <TextInput
-                  placeholder="Your phone number"
+                  placeholder="+14155550132"
                   style={{
                     ...styles.inputField,
                     fontSize: 16,
@@ -76,21 +117,30 @@ const PhoneRecover = () => {
                     fontWeight: "400",
                     color: "#B6B6B6",
                   }}
-                  value={phone_number}
-                  onChangeText={(text) => setPhoneNumber(text)}
-                  maxLength={11}
+                  value={identifier}
+                  onChangeText={(text) => setPhoneNumbe(text)}
                   placeholderTextColor="#B6B6B6"
                   keyboardType="phone-pad"
                 />
               </KeyboardAvoidingView>
             </View>
           </TouchableWithoutFeedback>
-          <>
+          {loading ? (
+            <ActivityIndicator
+              size={50}
+              color="#069FF8"
+              style={{
+                marginTop: 35,
+                alignSelf: "center",
+              }}
+            />
+          ) : (
             <LinearGradient
               colors={["#6FCAFF", "#0081CC"]}
               style={styles.button}
             >
               <TouchableOpacity
+                onPress={handleResetPasword}
                 style={{
                   flex: 1,
                   alignItems: "center",
@@ -109,7 +159,7 @@ const PhoneRecover = () => {
                 </Text>
               </TouchableOpacity>
             </LinearGradient>
-          </>
+          )}
         </View>
       </ImageBackground>
     </SafeAreaView>

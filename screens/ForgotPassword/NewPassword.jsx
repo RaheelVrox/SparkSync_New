@@ -1,3 +1,4 @@
+import React, { useEffect, useState } from "react";
 import {
   StyleSheet,
   Text,
@@ -12,8 +13,8 @@ import {
   Platform,
   TouchableOpacity,
   Alert,
+  ActivityIndicator,
 } from "react-native";
-import React, { useEffect, useState } from "react";
 import Header from "../../Component/Header";
 import {
   widthPercentageToDP as wp,
@@ -24,65 +25,82 @@ import { LinearGradient } from "expo-linear-gradient";
 import axios from "axios";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import ApiData from "../../apiconfig";
-
 import { useNavigation } from "@react-navigation/native";
+
 const NewPassword = () => {
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [userdata, setUserdata] = useState("");
+  const [loading, setLoading] = useState(false);
   const navigation = useNavigation();
 
   const toggleShowPassword = () => {
     setShowPassword(!showPassword);
   };
+
   const handleVerificationError = (errorMessage) => {
     Alert.alert("Error", errorMessage);
   };
+
   useEffect(() => {
     const getUserID = async () => {
       const value = await AsyncStorage.getItem("email");
+
       if (value !== null) {
         setUserdata(value);
       }
     };
     getUserID();
   }, []);
+
   const handlePasswordUpdate = async () => {
     try {
+      setLoading(true);
+
       if (!newPassword) {
-        handleVerificationError("Please enter your newpassword.");
+        handleVerificationError("Please enter your new password.");
+        setLoading(false);
         return;
       }
       if (!confirmPassword) {
-        handleVerificationError("Please enter your confirmpassword.");
+        handleVerificationError("Please enter your confirm password.");
+        setLoading(false);
         return;
       }
       if (newPassword !== confirmPassword) {
-        Alert.alert("Error", "Passwords do not match. Please try again.");
+        handleVerificationError("Passwords do not match. Please try again.");
+        setLoading(false);
         return;
       }
       if (newPassword.length < 8) {
-        Alert.alert("Error", "Password must be at least 8 characters long");
+        handleVerificationError("Password must be at least 8 characters long");
+        setLoading(false);
         return;
       }
+
       const apiUrl = `${ApiData.url}/api/v1/user/reset-password/`;
       const requestData = {
         email: userdata,
+        phone_number: userdata,
         newPassword,
         confirmPassword,
       };
+
       await axios
         .post(apiUrl, requestData)
         .then((response) => {
           navigation.navigate("Login");
         })
         .catch((error) => {
-          // console.log(error);
-          handleVerificationError(" Please try again");
+          console.log(error);
+          handleVerificationError("Please try again");
         });
+
+      setLoading(false);
     } catch (error) {
       console.error("Error:", error);
+      setLoading(false);
     }
   };
 
@@ -141,7 +159,7 @@ const NewPassword = () => {
                     onChangeText={(text) =>
                       setNewPassword(text.replace(/\s/g, ""))
                     }
-                    placeholder="Your Password"
+                    placeholder="Enter new password"
                     placeholderTextColor="#B6B6B6"
                   />
                   <MaterialCommunityIcons
@@ -186,7 +204,7 @@ const NewPassword = () => {
                     onChangeText={(text) =>
                       setConfirmPassword(text.replace(/\s/g, ""))
                     }
-                    placeholder="Your Password"
+                    placeholder="Enter confirm password"
                     placeholderTextColor="#B6B6B6"
                   />
                   <MaterialCommunityIcons
@@ -203,7 +221,17 @@ const NewPassword = () => {
                 </View>
               </KeyboardAvoidingView>
             </View>
-            <>
+            {loading ? (
+              <ActivityIndicator
+                size={50}
+                color="#069FF8"
+                style={{
+                  position: "absolute",
+                  bottom: 35,
+                  alignSelf: "center",
+                }}
+              />
+            ) : (
               <TouchableOpacity
                 onPress={handlePasswordUpdate}
                 style={styles.button}
@@ -215,7 +243,7 @@ const NewPassword = () => {
                   <Text style={styles.buttonText}>Save</Text>
                 </LinearGradient>
               </TouchableOpacity>
-            </>
+            )}
           </View>
         </ImageBackground>
       </SafeAreaView>

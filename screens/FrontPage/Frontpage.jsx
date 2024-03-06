@@ -56,7 +56,7 @@ const Frontpage = () => {
               color: "#fff",
             }}
           >
-            Wholesale electric price is yours with Spark Sync. See how our
+            Wholesale electricity price is yours with Spark Sync. See how our
             advanced algorithm can help you save by uploading your bill now!
           </Text>
         </View>

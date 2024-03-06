@@ -46,7 +46,7 @@ const ForgotPassword = () => {
         <View style={styles.container}>
           <Header
             title="Reset Password"
-            subTitle="Select verification method and we will send verification code "
+            subTitle="Select a verification method to receive OTP"
           />
           <View style={{ flex: 1, paddingTop: wp(15) }}>
             <TouchableOpacity
@@ -81,11 +81,11 @@ const ForgotPassword = () => {
                     color: "#B6B6B6",
                   }}
                 >
-                  Your send to your email
+                  Send OTP to email
                 </Text>
               </View>
             </TouchableOpacity>
-            {/* <TouchableOpacity
+            <TouchableOpacity
               onPress={() => {
                 setSelectedOption("phone-call");
               }}
@@ -117,10 +117,10 @@ const ForgotPassword = () => {
                     color: "#B6B6B6",
                   }}
                 >
-                  Send to your phone number
+                  Send OTP to phone number
                 </Text>
               </View>
-            </TouchableOpacity> */}
+            </TouchableOpacity>
           </View>
           <LinearGradient colors={["#6FCAFF", "#0081CC"]} style={styles.button}>
             <TouchableOpacity

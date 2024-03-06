@@ -134,7 +134,7 @@ const OTPVerify = () => {
           <View style={styles.container}>
             <Header
               title="Verify Login"
-              subTitle="Enter OTP Code sent to your email. The code will expire in 01:30"
+              subTitle=" Enter OTP Code sent to your email & phone number"
             />
             <View style={styles.otpContainer}>
               {otp.map((digit, index) => (

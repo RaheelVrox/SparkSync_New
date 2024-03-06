@@ -166,8 +166,7 @@ const OTPVerify = () => {
                     color: "#B6B6B6",
                   }}
                 >
-                  Enter OTP Code sent to your email. The code will expire in
-                  01:30
+                  Enter OTP Code sent to your email & phone number
                 </Text>
               </View>
             </View>

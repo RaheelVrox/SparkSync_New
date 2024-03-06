@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import {
   StyleSheet,
   Text,
@@ -12,8 +13,8 @@ import {
   Keyboard,
   Platform,
   Alert,
+  ActivityIndicator, 
 } from "react-native";
-import React, { useState } from "react";
 import Header from "../../Component/Header";
 import {
   widthPercentageToDP as wp,
@@ -28,12 +29,14 @@ import ApiData from "../../apiconfig";
 const EmailRecover = () => {
   const navigation = useNavigation();
   const [identifier, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
+
   const handleEmailChange = (text) => {
     const trimmedEmail = text.trim();
     setEmail(trimmedEmail.toLowerCase());
   };
+
   const handleVerificationError = (errorMessage) => {
-    // Display an error message to the user
     Alert.alert("Validation Error", errorMessage);
   };
 
@@ -43,10 +46,13 @@ const EmailRecover = () => {
         handleVerificationError("Please enter your email.");
         return;
       }
+      setLoading(true); 
+
       const apiUrl = `${ApiData.url}/api/v1/user/forgot-password/`;
       const requestData = {
         identifier,
       };
+
       await axios
         .post(apiUrl, requestData)
         .then(async (response) => {
@@ -55,6 +61,9 @@ const EmailRecover = () => {
         })
         .catch((error) => {
           handleVerificationError("Invalid email. Please try again");
+        })
+        .finally(() => {
+          setLoading(false); 
         });
     } catch (error) {
       console.error("Error:", error);
@@ -80,7 +89,7 @@ const EmailRecover = () => {
         <View style={styles.container}>
           <Header
             title="Reset Password"
-            subTitle="Select verification method and we will send verification code"
+            subTitle="Enter your registered email address "
           />
           <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
             <View
@@ -124,7 +133,17 @@ const EmailRecover = () => {
               </KeyboardAvoidingView>
             </View>
           </TouchableWithoutFeedback>
-          <>
+
+          {loading ? (
+            <ActivityIndicator
+              size={50}
+              color="#069FF8"
+              style={{
+                marginTop: 35,
+                alignSelf: "center",
+              }}
+            />
+          ) : (
             <LinearGradient
               colors={["#6FCAFF", "#0081CC"]}
               style={styles.button}
@@ -149,7 +168,7 @@ const EmailRecover = () => {
                 </Text>
               </TouchableOpacity>
             </LinearGradient>
-          </>
+          )}
         </View>
       </ImageBackground>
     </SafeAreaView>
