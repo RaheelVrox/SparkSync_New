@@ -75,9 +75,9 @@ const SignUP = () => {
         .post(apiUrl, requestData)
         .then(async (response) => {
           // console.log("signup_data:", response.data);
-
-          if (response.data.message === "User with this email already exist!") {
-            Alert.alert("Validation Error", response.data.message);
+          // console.log("dsadasdas", response.data);
+          if (response.data.data === null) {
+            Alert.alert("Validation Error", response.data.error);
             setIsLoading(false);
           } else {
             setUserData(response.data.newUser);

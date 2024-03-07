@@ -233,7 +233,7 @@ const UpdateBackImage = ({ route, navigation }) => {
                       borderColor: "#4A5F71",
                       elevation: 5,
                     }}
-                    onPress={() => navigation.navigate("UploadFrontPage")}
+                    onPress={() => navigation.navigate("UploadBackPage")}
                   >
                     <Text
                       style={{

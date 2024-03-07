@@ -28,7 +28,7 @@ import ApiData from "../../apiconfig";
 
 const PhoneRecover = () => {
   const [identifier, setPhoneNumbe] = useState("");
-  const [loading, setLoading] = useState(false); 
+  const [loading, setLoading] = useState(false);
   const navigation = useNavigation();
 
   const handleVerificationError = (errorMessage) => {
@@ -41,7 +41,7 @@ const PhoneRecover = () => {
         handleVerificationError("Please enter your phone number");
         return;
       }
-      setLoading(true); 
+      setLoading(true);
       const apiUrl = `${ApiData.url}/api/v1/user/forgot-password/`;
       const requestData = {
         identifier,
@@ -53,14 +53,14 @@ const PhoneRecover = () => {
           navigation.navigate("PasswordVerify");
         })
         .catch((error) => {
-          handleVerificationError("Invalid email. Please try again");
+          handleVerificationError("Invalid phone number. Please try again");
         })
         .finally(() => {
-          setLoading(false); 
+          setLoading(false);
         });
     } catch (error) {
       console.error("Error:", error);
-      setLoading(false); 
+      setLoading(false);
     }
   };
 

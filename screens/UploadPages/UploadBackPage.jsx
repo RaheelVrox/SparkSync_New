@@ -60,7 +60,7 @@ const UploadBackPage = () => {
         <View style={styles.container}>
           <Header
             title="Upload Back Page"
-            subTitle="Please upload the front part of your bill "
+            subTitle="Please upload the back part of your bill "
           />
           <View style={{ flex: 1, position: "relative" }}>
             <View>
