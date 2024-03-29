@@ -91,7 +91,7 @@ const SignUP = () => {
           console.log(error);
           const errorMessage =
             error.response?.data?.message ||
-            "User with this email already exist!";
+            "Unexpected error occurred. Please try again.";
           Alert.alert("Validation Error", errorMessage);
           setIsLoading(false);
           // props.onSignUpSuccess();

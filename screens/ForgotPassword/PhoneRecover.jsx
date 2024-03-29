@@ -49,6 +49,7 @@ const PhoneRecover = () => {
       await axios
         .post(apiUrl, requestData)
         .then(async (response) => {
+          console.log("API Response:", response.data);
           await AsyncStorage.setItem("phone_number", identifier);
           navigation.navigate("PasswordVerify");
         })

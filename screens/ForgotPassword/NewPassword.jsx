@@ -45,10 +45,23 @@ const NewPassword = () => {
 
   useEffect(() => {
     const getUserID = async () => {
-      const value = await AsyncStorage.getItem("email");
+      const email = await AsyncStorage.getItem("email");
 
-      if (value !== null) {
-        setUserdata(value);
+      if (email !== null) {
+        setUserdata(email);
+        console.log("User email:", email);
+      }
+    };
+    getUserID();
+  }, []);
+
+  useEffect(() => {
+    const getUserID = async () => {
+      const phone = await AsyncStorage.getItem("phone_number");
+
+      if (phone !== null) {
+        setUserdata(phone);
+        console.log("User phone_number:", phone);
       }
     };
     getUserID();
@@ -78,6 +91,7 @@ const NewPassword = () => {
         setLoading(false);
         return;
       }
+      console.log(userdata);
 
       const apiUrl = `${ApiData.url}/api/v1/user/reset-password/`;
       const requestData = {

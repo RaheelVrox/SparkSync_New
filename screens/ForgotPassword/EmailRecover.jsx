@@ -56,6 +56,7 @@ const EmailRecover = () => {
       await axios
         .post(apiUrl, requestData)
         .then(async (response) => {
+          console.log("API Response:", response.data);
           await AsyncStorage.setItem("email", identifier);
           navigation.navigate("PasswordVerify");
         })
