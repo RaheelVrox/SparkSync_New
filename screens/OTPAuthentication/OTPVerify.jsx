@@ -138,10 +138,10 @@ const OTPVerify = () => {
               >
                 <Image
                   style={{
-                    width: 60,
-                    height: 60,
+                    width: 55,
+                    height: 55,
+                    resizeMode: "cover",
                     marginBottom: 5,
-                    resizeMode: "contain",
                   }}
                   source={require("../../assets/BackButton.png")}
                 />
