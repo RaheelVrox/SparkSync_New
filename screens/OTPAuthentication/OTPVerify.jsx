@@ -161,12 +161,12 @@ const OTPVerify = () => {
                 <Text
                   style={{
                     fontFamily: "Roboto-Regular",
-                    fontSize: 16,
+                    fontSize: 15,
                     fontWeight: "400",
                     color: "#B6B6B6",
                   }}
                 >
-                  Enter OTP Code sent to your email & phone number
+                Enter OTP Code sent to your email & phone number
                 </Text>
               </View>
             </View>

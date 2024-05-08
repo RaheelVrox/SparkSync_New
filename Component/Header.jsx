@@ -42,7 +42,7 @@ const Header = ({ title, subTitle }) => {
           <Text
             style={{
               fontFamily: "Roboto-Regular",
-              fontSize: 16,
+              fontSize: 15,
               fontWeight: "400",
               color: "#B6B6B6",
             }}
