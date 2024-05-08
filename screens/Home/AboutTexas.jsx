@@ -41,9 +41,9 @@ const AboutTexas = () => {
             >
               <Image
                 style={{
-                  width: 60,
-                  height: 60,
-                  resizeMode: "contain",
+                  width: 55,
+                  height: 55,
+                  resizeMode: "cover",
                 }}
                 source={require("../../assets/BackButton.png")}
               />
@@ -112,7 +112,7 @@ export default AboutTexas;
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: wp(13),
+    paddingTop: 40,
     flex: 1,
   },
   detailcontainer: {

@@ -160,9 +160,9 @@ const SignUP = () => {
                         >
                           <Image
                             style={{
-                              width: 60,
-                              height: 60,
-                              resizeMode: "contain",
+                              width: 55,
+                              height: 55,
+                              resizeMode: "cover",
                               marginBottom: 5,
                             }}
                             source={require("../../assets/BackButton.png")}
@@ -436,7 +436,7 @@ const SignUP = () => {
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: wp(13),
+    paddingTop: 40,
     flex: 1,
   },
   inputField: {

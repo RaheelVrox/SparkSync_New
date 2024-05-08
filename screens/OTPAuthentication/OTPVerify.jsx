@@ -109,7 +109,7 @@ const OTPVerify = () => {
     } catch (error) {
       console.error("Error:", error);
     }
-  };;
+  };
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <SafeAreaView style={{ flex: 1, backgroundColor: "#000000" }}>
@@ -166,7 +166,7 @@ const OTPVerify = () => {
                     color: "#B6B6B6",
                   }}
                 >
-                Enter OTP Code sent to your email & phone number
+                  Enter OTP Code sent to your email & phone number
                 </Text>
               </View>
             </View>
@@ -268,7 +268,7 @@ const OTPVerify = () => {
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: wp(13),
+    paddingTop: 40,
     flex: 1,
   },
   otpContainer: {

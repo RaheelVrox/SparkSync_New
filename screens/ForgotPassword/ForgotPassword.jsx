@@ -153,7 +153,7 @@ export default ForgotPassword;
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: wp(15),
+    paddingTop: 40,
     flex: 1,
   },
   containerbox: {

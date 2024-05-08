@@ -13,7 +13,7 @@ import {
   Keyboard,
   Platform,
   Alert,
-  ActivityIndicator, 
+  ActivityIndicator,
 } from "react-native";
 import Header from "../../Component/Header";
 import {
@@ -46,7 +46,7 @@ const EmailRecover = () => {
         handleVerificationError("Please enter your email.");
         return;
       }
-      setLoading(true); 
+      setLoading(true);
 
       const apiUrl = `${ApiData.url}/api/v1/user/forgot-password/`;
       const requestData = {
@@ -64,7 +64,7 @@ const EmailRecover = () => {
           handleVerificationError("Invalid email. Please try again");
         })
         .finally(() => {
-          setLoading(false); 
+          setLoading(false);
         });
     } catch (error) {
       console.error("Error:", error);
@@ -180,7 +180,7 @@ export default EmailRecover;
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: wp(15),
+    paddingTop: 40,
     flex: 1,
   },
   inputField: {

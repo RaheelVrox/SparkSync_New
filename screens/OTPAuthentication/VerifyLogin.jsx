@@ -234,7 +234,7 @@ const OTPVerify = () => {
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: wp(13),
+    paddingTop:40,
     flex: 1,
   },
   otpContainer: {
