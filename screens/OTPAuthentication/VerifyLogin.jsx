@@ -45,13 +45,14 @@ const OTPVerify = () => {
 
   useEffect(() => {
     const getUserID = async () => {
-      const value = await AsyncStorage.getItem("email");
+      const value = await AsyncStorage.getItem("userData");
       if (value !== null) {
-        setUseremail(value);
+        const new_val = JSON.parse(value);
+        setUseremail(new_val);
       }
     };
     getUserID();
-  }, []);
+  }, [otp]);
 
   const handleVerificationError = (errorMessage) => {
     Alert.alert("Validation Error", errorMessage);
@@ -67,6 +68,9 @@ const OTPVerify = () => {
       const requestData = {
         otp: newOTP,
       };
+      console.log("apiUrl is: ", apiUrl);
+      console.log("requestData  is: ", requestData);
+      console.log("new Otp is: ", newOTP);
 
       await axios
         .post(apiUrl, requestData)
@@ -101,13 +105,14 @@ const OTPVerify = () => {
     try {
       const apiUrl = `${ApiData.url}/api/v1/user/resend-otp/`;
       const resendRequestData = {
-        email: useremail,
+        email: useremail.email,
       };
+      console.log("requestDatais resend: ", resendRequestData);
       await axios
         .post(apiUrl, resendRequestData)
         .then((response) => {})
         .catch((error) => {
-          // console.log(error);
+          console.log(error);
         });
     } catch (error) {
       console.error("Error:", error);
@@ -234,7 +239,7 @@ const OTPVerify = () => {
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop:40,
+    paddingTop: 40,
     flex: 1,
   },
   otpContainer: {

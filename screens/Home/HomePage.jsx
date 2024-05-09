@@ -406,7 +406,7 @@ export default HomePage;
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 40,
+    paddingTop: 30,
     flex: 1,
   },
   divider: {

@@ -44,7 +44,7 @@ const OTPVerify = () => {
 
   useEffect(() => {
     const getUserID = async () => {
-      const value = await AsyncStorage.getItem("email");
+      const value = await AsyncStorage.getItem("userData");
       if (value !== null) {
         setUseremail(value);
       }
@@ -98,7 +98,7 @@ const OTPVerify = () => {
     try {
       const apiUrl = `${ApiData.url}/api/v1/user/resend-otp/`;
       const resendRequestData = {
-        email: useremail,
+        email: useremail.email,
       };
       await axios
         .post(apiUrl, resendRequestData)

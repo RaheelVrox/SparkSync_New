@@ -26,7 +26,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import ApiData from "../../apiconfig.js";
 import Header from "../../Component/Header";
 
-const OTPVerify = () => {
+const PasswordVerify = () => {
   const navigation = useNavigation();
   const [otp, setOtp] = useState(["", "", "", ""]);
   const [useremail, setUseremail] = useState("");
@@ -45,7 +45,7 @@ const OTPVerify = () => {
 
   useEffect(() => {
     const getUserID = async () => {
-      const value = await AsyncStorage.getItem("email");
+      const value = await AsyncStorage.getItem("userData");
       if (value !== null) {
         setUseremail(value);
       }
@@ -100,7 +100,7 @@ const OTPVerify = () => {
     try {
       const apiUrl = `${ApiData.url}/api/v1/user/resend-otp/`;
       const resendRequestData = {
-        email: useremail,
+        email: useremail.email,
       };
       await axios
         .post(apiUrl, resendRequestData)
@@ -233,7 +233,7 @@ const OTPVerify = () => {
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop:40,
+    paddingTop: 40,
     flex: 1,
   },
   otpContainer: {
@@ -269,4 +269,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default OTPVerify;
+export default PasswordVerify;
