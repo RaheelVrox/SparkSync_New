@@ -152,7 +152,7 @@ const Profile = () => {
               <Text style={styles.buttonText}>Edit Profile</Text>
             </TouchableOpacity>
           </View>
-          <View style={{ marginTop: wp(17)}}>
+          <View style={{ marginTop: wp(17) }}>
             <TouchableOpacity
               onPress={() => navigation.navigate("ForgotPassword")}
             >
@@ -192,7 +192,7 @@ export default Profile;
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: wp(18),
+    paddingTop: wp(17),
     flex: 1,
   },
   buttonText: {

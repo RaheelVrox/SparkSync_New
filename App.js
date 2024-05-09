@@ -31,7 +31,7 @@ export default function App() {
 
   return (
     <UserDataProvider>
-      <StatusBar />
+      <StatusBar style="light" />
       <NavigationContainer>
         <StackNavigation />
       </NavigationContainer>

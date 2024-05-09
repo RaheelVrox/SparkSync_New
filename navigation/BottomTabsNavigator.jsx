@@ -375,9 +375,9 @@ const BottomTabsNavigator = () => {
           tabBarIcon: ({ color, size }) => (
             <>
               <Ionicons
-                name="ios-person-circle-sharp"
+                name="person-circle-sharp"
                 color={color}
-                size={size + 6}
+                size={size + 5}
               />
             </>
           ),

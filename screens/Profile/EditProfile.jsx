@@ -340,7 +340,7 @@ export default EditProfile;
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: wp(18),
+    paddingTop: wp(17),
     flex: 1,
   },
   detailContainer: {
