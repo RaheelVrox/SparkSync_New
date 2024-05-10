@@ -46,11 +46,12 @@ const OTPVerify = () => {
     const getUserID = async () => {
       const value = await AsyncStorage.getItem("userData");
       if (value !== null) {
-        setUseremail(value);
+        const new_val = JSON.parse(value);
+        setUseremail(new_val);
       }
     };
     getUserID();
-  }, []);
+  }, [otp]);
 
   const handleVerificationError = (errorMessage) => {
     Alert.alert("Validation Error", errorMessage);
@@ -64,7 +65,9 @@ const OTPVerify = () => {
       const requestData = {
         otp: newOTP,
       };
-
+      console.log("apiUrl is: ", apiUrl);
+      console.log("requestData  is: ", requestData);
+      console.log("new Otp is: ", newOTP);
       await axios
         .post(apiUrl, requestData)
         .then(async (response) => {
@@ -100,6 +103,7 @@ const OTPVerify = () => {
       const resendRequestData = {
         email: useremail.email,
       };
+      console.log("requestDatais resend: ", resendRequestData);
       await axios
         .post(apiUrl, resendRequestData)
         .then((response) => {})
